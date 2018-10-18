@@ -5,16 +5,30 @@ package com.evaluating.model;
  * 
  * @author wcyong
  * 
- * @date 2018-10-16
+ * @date 2018-10-18
  */
 public class User {
     private Integer id;
 
-    private String userName;
+    /**
+     * 用户名
+     */
+    private String uName;
 
-    private String password;
+    /**
+     * 用户密码
+     */
+    private String uPassword;
 
-    private Integer age;
+    /**
+     * 用户邮箱
+     */
+    private String uEmail;
+
+    /**
+     * 用户手机
+     */
+    private String uPhone;
 
     public Integer getId() {
         return id;
@@ -24,27 +38,35 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getuName() {
+        return uName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setuName(String uName) {
+        this.uName = uName == null ? null : uName.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getuPassword() {
+        return uPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setuPassword(String uPassword) {
+        this.uPassword = uPassword == null ? null : uPassword.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public String getuEmail() {
+        return uEmail;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setuEmail(String uEmail) {
+        this.uEmail = uEmail == null ? null : uEmail.trim();
+    }
+
+    public String getuPhone() {
+        return uPhone;
+    }
+
+    public void setuPhone(String uPhone) {
+        this.uPhone = uPhone == null ? null : uPhone.trim();
     }
 }

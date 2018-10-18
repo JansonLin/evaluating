@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evaluating.mapper.studentMapper" >
+
+    <resultMap id="BaseResultMap" type="com.evaluating.model.student" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="s_name" property="sName" jdbcType="VARCHAR" />
+        <result column="s_sex" property="sSex" jdbcType="INTEGER" />
+        <result column="s_birthday" property="sBirthday" jdbcType="DATE" />
+        <result column="s_ethnic" property="sEthnic" jdbcType="VARCHAR" />
+        <result column="s_jiguan" property="sJiguan" jdbcType="VARCHAR" />
+        <result column="s_hukou" property="sHukou" jdbcType="VARCHAR" />
+        <result column="s_political" property="sPolitical" jdbcType="VARCHAR" />
+        <result column="s_education" property="sEducation" jdbcType="VARCHAR" />
+        <result column="s_degree" property="sDegree" jdbcType="VARCHAR" />
+        <result column="s_school" property="sSchool" jdbcType="VARCHAR" />
+        <result column="s_major" property="sMajor" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        id, s_name, s_sex, s_birthday, s_ethnic, s_jiguan, s_hukou, s_political, s_education, 
+        s_degree, s_school, s_major, user_id
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.studentExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from e_student
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select 
+        <include refid="Base_Column_List" />
+        from e_student
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from e_student
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <delete id="deleteByExample" parameterType="com.evaluating.model.studentExample" >
+        delete from e_student
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.evaluating.model.student" >
+        insert into e_student (id, s_name, s_sex, 
+            s_birthday, s_ethnic, s_jiguan, 
+            s_hukou, s_political, s_education, 
+            s_degree, s_school, s_major, 
+            user_id)
+        values (#{id,jdbcType=INTEGER}, #{sName,jdbcType=VARCHAR}, #{sSex,jdbcType=INTEGER}, 
+            #{sBirthday,jdbcType=DATE}, #{sEthnic,jdbcType=VARCHAR}, #{sJiguan,jdbcType=VARCHAR}, 
+            #{sHukou,jdbcType=VARCHAR}, #{sPolitical,jdbcType=VARCHAR}, #{sEducation,jdbcType=VARCHAR}, 
+            #{sDegree,jdbcType=VARCHAR}, #{sSchool,jdbcType=VARCHAR}, #{sMajor,jdbcType=VARCHAR}, 
+            #{userId,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.evaluating.model.student" >
+        insert into e_student
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="sName != null" >
+                s_name,
+            </if>
+            <if test="sSex != null" >
+                s_sex,
+            </if>
+            <if test="sBirthday != null" >
+                s_birthday,
+            </if>
+            <if test="sEthnic != null" >
+                s_ethnic,
+            </if>
+            <if test="sJiguan != null" >
+                s_jiguan,
+            </if>
+            <if test="sHukou != null" >
+                s_hukou,
+            </if>
+            <if test="sPolitical != null" >
+                s_political,
+            </if>
+            <if test="sEducation != null" >
+                s_education,
+            </if>
+            <if test="sDegree != null" >
+                s_degree,
+            </if>
+            <if test="sSchool != null" >
+                s_school,
+            </if>
+            <if test="sMajor != null" >
+                s_major,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="sName != null" >
+                #{sName,jdbcType=VARCHAR},
+            </if>
+            <if test="sSex != null" >
+                #{sSex,jdbcType=INTEGER},
+            </if>
+            <if test="sBirthday != null" >
+                #{sBirthday,jdbcType=DATE},
+            </if>
+            <if test="sEthnic != null" >
+                #{sEthnic,jdbcType=VARCHAR},
+            </if>
+            <if test="sJiguan != null" >
+                #{sJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="sHukou != null" >
+                #{sHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="sPolitical != null" >
+                #{sPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="sEducation != null" >
+                #{sEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="sDegree != null" >
+                #{sDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="sSchool != null" >
+                #{sSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="sMajor != null" >
+                #{sMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.evaluating.model.studentExample" resultType="java.lang.Integer" >
+        select count(*) from e_student
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update e_student
+        <set >
+            <if test="record.id != null" >
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.sName != null" >
+                s_name = #{record.sName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sSex != null" >
+                s_sex = #{record.sSex,jdbcType=INTEGER},
+            </if>
+            <if test="record.sBirthday != null" >
+                s_birthday = #{record.sBirthday,jdbcType=DATE},
+            </if>
+            <if test="record.sEthnic != null" >
+                s_ethnic = #{record.sEthnic,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sJiguan != null" >
+                s_jiguan = #{record.sJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sHukou != null" >
+                s_hukou = #{record.sHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sPolitical != null" >
+                s_political = #{record.sPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sEducation != null" >
+                s_education = #{record.sEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sDegree != null" >
+                s_degree = #{record.sDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sSchool != null" >
+                s_school = #{record.sSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sMajor != null" >
+                s_major = #{record.sMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userId != null" >
+                user_id = #{record.userId,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update e_student
+        set id = #{record.id,jdbcType=INTEGER},
+            s_name = #{record.sName,jdbcType=VARCHAR},
+            s_sex = #{record.sSex,jdbcType=INTEGER},
+            s_birthday = #{record.sBirthday,jdbcType=DATE},
+            s_ethnic = #{record.sEthnic,jdbcType=VARCHAR},
+            s_jiguan = #{record.sJiguan,jdbcType=VARCHAR},
+            s_hukou = #{record.sHukou,jdbcType=VARCHAR},
+            s_political = #{record.sPolitical,jdbcType=VARCHAR},
+            s_education = #{record.sEducation,jdbcType=VARCHAR},
+            s_degree = #{record.sDegree,jdbcType=VARCHAR},
+            s_school = #{record.sSchool,jdbcType=VARCHAR},
+            s_major = #{record.sMajor,jdbcType=VARCHAR},
+            user_id = #{record.userId,jdbcType=INTEGER}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.student" >
+        update e_student
+        <set >
+            <if test="sName != null" >
+                s_name = #{sName,jdbcType=VARCHAR},
+            </if>
+            <if test="sSex != null" >
+                s_sex = #{sSex,jdbcType=INTEGER},
+            </if>
+            <if test="sBirthday != null" >
+                s_birthday = #{sBirthday,jdbcType=DATE},
+            </if>
+            <if test="sEthnic != null" >
+                s_ethnic = #{sEthnic,jdbcType=VARCHAR},
+            </if>
+            <if test="sJiguan != null" >
+                s_jiguan = #{sJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="sHukou != null" >
+                s_hukou = #{sHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="sPolitical != null" >
+                s_political = #{sPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="sEducation != null" >
+                s_education = #{sEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="sDegree != null" >
+                s_degree = #{sDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="sSchool != null" >
+                s_school = #{sSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="sMajor != null" >
+                s_major = #{sMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.student" >
+        update e_student
+        set s_name = #{sName,jdbcType=VARCHAR},
+            s_sex = #{sSex,jdbcType=INTEGER},
+            s_birthday = #{sBirthday,jdbcType=DATE},
+            s_ethnic = #{sEthnic,jdbcType=VARCHAR},
+            s_jiguan = #{sJiguan,jdbcType=VARCHAR},
+            s_hukou = #{sHukou,jdbcType=VARCHAR},
+            s_political = #{sPolitical,jdbcType=VARCHAR},
+            s_education = #{sEducation,jdbcType=VARCHAR},
+            s_degree = #{sDegree,jdbcType=VARCHAR},
+            s_school = #{sSchool,jdbcType=VARCHAR},
+            s_major = #{sMajor,jdbcType=VARCHAR},
+            user_id = #{userId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
