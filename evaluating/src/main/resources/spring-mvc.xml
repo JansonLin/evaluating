@@ -51,6 +51,6 @@
    <!-- 对模型视图添加前后缀 -->
      <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
       p:prefix="/WEB-INF/page/" p:suffix=".jsp"/>
-      
+    <!-- 大爷的我就不信了 -->
 
 </beans>
