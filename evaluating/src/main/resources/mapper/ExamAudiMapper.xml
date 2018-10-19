@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.evaluating.mapper.ExamAudiMapper" >
+
+    <resultMap id="BaseResultMap" type="com.evaluating.model.ExamAudi" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="exam_id" property="examId" jdbcType="INTEGER" />
+        <result column="exam_name" property="examName" jdbcType="VARCHAR" />
+        <result column="ea_atudent_id" property="eaAtudentId" jdbcType="INTEGER" />
+        <result column="exam_card_code" property="examCardCode" jdbcType="VARCHAR" />
+        <result column="ea_enter_date" property="eaEnterDate" jdbcType="TIMESTAMP" />
+        <result column="ea_auditor_id" property="eaAuditorId" jdbcType="INTEGER" />
+        <result column="ea_audi_status" property="eaAudiStatus" jdbcType="INTEGER" />
+        <result column="ea_reason" property="eaReason" jdbcType="LONGVARCHAR" />
+        <result column="ea_status" property="eaStatus" jdbcType="INTEGER" />
+        <result column="ea_score" property="eaScore" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause" >
+        <where >
+            <foreach collection="oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                <if test="criteria.valid" >
+                    <trim prefix="(" suffix=")" prefixOverrides="and" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+
+    <sql id="Base_Column_List" >
+        id, exam_id, exam_name, ea_atudent_id, exam_card_code, ea_enter_date, ea_auditor_id, 
+        ea_audi_status, ea_reason, ea_status, ea_score
+    </sql>
+
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.ExamAudiExample" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from e_exam_audi
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select 
+        <include refid="Base_Column_List" />
+        from e_exam_audi
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from e_exam_audi
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <delete id="deleteByExample" parameterType="com.evaluating.model.ExamAudiExample" >
+        delete from e_exam_audi
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </delete>
+
+    <insert id="insert" parameterType="com.evaluating.model.ExamAudi" >
+        insert into e_exam_audi (id, exam_id, exam_name, 
+            ea_atudent_id, exam_card_code, ea_enter_date, 
+            ea_auditor_id, ea_audi_status, ea_reason, 
+            ea_status, ea_score)
+        values (#{id,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{examName,jdbcType=VARCHAR}, 
+            #{eaAtudentId,jdbcType=INTEGER}, #{examCardCode,jdbcType=VARCHAR}, #{eaEnterDate,jdbcType=TIMESTAMP}, 
+            #{eaAuditorId,jdbcType=INTEGER}, #{eaAudiStatus,jdbcType=INTEGER}, #{eaReason,jdbcType=LONGVARCHAR}, 
+            #{eaStatus,jdbcType=INTEGER}, #{eaScore,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.evaluating.model.ExamAudi" >
+        insert into e_exam_audi
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="examId != null" >
+                exam_id,
+            </if>
+            <if test="examName != null" >
+                exam_name,
+            </if>
+            <if test="eaAtudentId != null" >
+                ea_atudent_id,
+            </if>
+            <if test="examCardCode != null" >
+                exam_card_code,
+            </if>
+            <if test="eaEnterDate != null" >
+                ea_enter_date,
+            </if>
+            <if test="eaAuditorId != null" >
+                ea_auditor_id,
+            </if>
+            <if test="eaAudiStatus != null" >
+                ea_audi_status,
+            </if>
+            <if test="eaReason != null" >
+                ea_reason,
+            </if>
+            <if test="eaStatus != null" >
+                ea_status,
+            </if>
+            <if test="eaScore != null" >
+                ea_score,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="examId != null" >
+                #{examId,jdbcType=INTEGER},
+            </if>
+            <if test="examName != null" >
+                #{examName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaAtudentId != null" >
+                #{eaAtudentId,jdbcType=INTEGER},
+            </if>
+            <if test="examCardCode != null" >
+                #{examCardCode,jdbcType=VARCHAR},
+            </if>
+            <if test="eaEnterDate != null" >
+                #{eaEnterDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="eaAuditorId != null" >
+                #{eaAuditorId,jdbcType=INTEGER},
+            </if>
+            <if test="eaAudiStatus != null" >
+                #{eaAudiStatus,jdbcType=INTEGER},
+            </if>
+            <if test="eaReason != null" >
+                #{eaReason,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eaStatus != null" >
+                #{eaStatus,jdbcType=INTEGER},
+            </if>
+            <if test="eaScore != null" >
+                #{eaScore,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="countByExample" parameterType="com.evaluating.model.ExamAudiExample" resultType="java.lang.Integer" >
+        select count(*) from e_exam_audi
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <update id="updateByExampleSelective" parameterType="map" >
+        update e_exam_audi
+        <set >
+            <if test="record.id != null" >
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.examId != null" >
+                exam_id = #{record.examId,jdbcType=INTEGER},
+            </if>
+            <if test="record.examName != null" >
+                exam_name = #{record.examName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eaAtudentId != null" >
+                ea_atudent_id = #{record.eaAtudentId,jdbcType=INTEGER},
+            </if>
+            <if test="record.examCardCode != null" >
+                exam_card_code = #{record.examCardCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eaEnterDate != null" >
+                ea_enter_date = #{record.eaEnterDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.eaAuditorId != null" >
+                ea_auditor_id = #{record.eaAuditorId,jdbcType=INTEGER},
+            </if>
+            <if test="record.eaAudiStatus != null" >
+                ea_audi_status = #{record.eaAudiStatus,jdbcType=INTEGER},
+            </if>
+            <if test="record.eaReason != null" >
+                ea_reason = #{record.eaReason,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="record.eaStatus != null" >
+                ea_status = #{record.eaStatus,jdbcType=INTEGER},
+            </if>
+            <if test="record.eaScore != null" >
+                ea_score = #{record.eaScore,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByExample" parameterType="map" >
+        update e_exam_audi
+        set id = #{record.id,jdbcType=INTEGER},
+            exam_id = #{record.examId,jdbcType=INTEGER},
+            exam_name = #{record.examName,jdbcType=VARCHAR},
+            ea_atudent_id = #{record.eaAtudentId,jdbcType=INTEGER},
+            exam_card_code = #{record.examCardCode,jdbcType=VARCHAR},
+            ea_enter_date = #{record.eaEnterDate,jdbcType=TIMESTAMP},
+            ea_auditor_id = #{record.eaAuditorId,jdbcType=INTEGER},
+            ea_audi_status = #{record.eaAudiStatus,jdbcType=INTEGER},
+            ea_reason = #{record.eaReason,jdbcType=LONGVARCHAR},
+            ea_status = #{record.eaStatus,jdbcType=INTEGER},
+            ea_score = #{record.eaScore,jdbcType=INTEGER}
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+    </update>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.ExamAudi" >
+        update e_exam_audi
+        <set >
+            <if test="examId != null" >
+                exam_id = #{examId,jdbcType=INTEGER},
+            </if>
+            <if test="examName != null" >
+                exam_name = #{examName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaAtudentId != null" >
+                ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
+            </if>
+            <if test="examCardCode != null" >
+                exam_card_code = #{examCardCode,jdbcType=VARCHAR},
+            </if>
+            <if test="eaEnterDate != null" >
+                ea_enter_date = #{eaEnterDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="eaAuditorId != null" >
+                ea_auditor_id = #{eaAuditorId,jdbcType=INTEGER},
+            </if>
+            <if test="eaAudiStatus != null" >
+                ea_audi_status = #{eaAudiStatus,jdbcType=INTEGER},
+            </if>
+            <if test="eaReason != null" >
+                ea_reason = #{eaReason,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eaStatus != null" >
+                ea_status = #{eaStatus,jdbcType=INTEGER},
+            </if>
+            <if test="eaScore != null" >
+                ea_score = #{eaScore,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.ExamAudi" >
+        update e_exam_audi
+        set exam_id = #{examId,jdbcType=INTEGER},
+            exam_name = #{examName,jdbcType=VARCHAR},
+            ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
+            exam_card_code = #{examCardCode,jdbcType=VARCHAR},
+            ea_enter_date = #{eaEnterDate,jdbcType=TIMESTAMP},
+            ea_auditor_id = #{eaAuditorId,jdbcType=INTEGER},
+            ea_audi_status = #{eaAudiStatus,jdbcType=INTEGER},
+            ea_reason = #{eaReason,jdbcType=LONGVARCHAR},
+            ea_status = #{eaStatus,jdbcType=INTEGER},
+            ea_score = #{eaScore,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

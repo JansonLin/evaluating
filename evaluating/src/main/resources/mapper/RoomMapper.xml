@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.evaluating.mapper.UserMapper" >
+<mapper namespace="com.evaluating.mapper.RoomMapper" >
 
-    <resultMap id="BaseResultMap" type="com.evaluating.model.User" >
+    <resultMap id="BaseResultMap" type="com.evaluating.model.Room" >
         <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="u_name" property="uName" jdbcType="VARCHAR" />
-        <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
-        <result column="u_email" property="uEmail" jdbcType="VARCHAR" />
-        <result column="u_phone" property="uPhone" jdbcType="VARCHAR" />
+        <result column="r_name" property="rName" jdbcType="VARCHAR" />
+        <result column="r_count" property="rCount" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -71,16 +69,16 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, u_name, u_password, u_email, u_phone
+        id, r_name, r_count
     </sql>
 
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.UserExample" >
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.RoomExample" >
         select
         <if test="distinct" >
             distinct
         </if>
         <include refid="Base_Column_List" />
-        from e_user
+        from e_room
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
@@ -92,91 +90,73 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select 
         <include refid="Base_Column_List" />
-        from e_user
+        from e_room
         where id = #{id,jdbcType=INTEGER}
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_user
+        delete from e_room
         where id = #{id,jdbcType=INTEGER}
     </delete>
 
-    <delete id="deleteByExample" parameterType="com.evaluating.model.UserExample" >
-        delete from e_user
+    <delete id="deleteByExample" parameterType="com.evaluating.model.RoomExample" >
+        delete from e_room
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
 
-    <insert id="insert" parameterType="com.evaluating.model.User" >
-        insert into e_user (id, u_name, u_password, 
-            u_email, u_phone)
-        values (#{id,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
-            #{uEmail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR})
+    <insert id="insert" parameterType="com.evaluating.model.Room" >
+        insert into e_room (id, r_name, r_count
+            )
+        values (#{id,jdbcType=INTEGER}, #{rName,jdbcType=VARCHAR}, #{rCount,jdbcType=INTEGER}
+            )
     </insert>
 
-    <insert id="insertSelective" parameterType="com.evaluating.model.User" >
-        insert into e_user
+    <insert id="insertSelective" parameterType="com.evaluating.model.Room" >
+        insert into e_room
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 id,
             </if>
-            <if test="uName != null" >
-                u_name,
+            <if test="rName != null" >
+                r_name,
             </if>
-            <if test="uPassword != null" >
-                u_password,
-            </if>
-            <if test="uEmail != null" >
-                u_email,
-            </if>
-            <if test="uPhone != null" >
-                u_phone,
+            <if test="rCount != null" >
+                r_count,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="uName != null" >
-                #{uName,jdbcType=VARCHAR},
+            <if test="rName != null" >
+                #{rName,jdbcType=VARCHAR},
             </if>
-            <if test="uPassword != null" >
-                #{uPassword,jdbcType=VARCHAR},
-            </if>
-            <if test="uEmail != null" >
-                #{uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="uPhone != null" >
-                #{uPhone,jdbcType=VARCHAR},
+            <if test="rCount != null" >
+                #{rCount,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
 
-    <select id="countByExample" parameterType="com.evaluating.model.UserExample" resultType="java.lang.Integer" >
-        select count(*) from e_user
+    <select id="countByExample" parameterType="com.evaluating.model.RoomExample" resultType="java.lang.Integer" >
+        select count(*) from e_room
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
     </select>
 
     <update id="updateByExampleSelective" parameterType="map" >
-        update e_user
+        update e_room
         <set >
             <if test="record.id != null" >
                 id = #{record.id,jdbcType=INTEGER},
             </if>
-            <if test="record.uName != null" >
-                u_name = #{record.uName,jdbcType=VARCHAR},
+            <if test="record.rName != null" >
+                r_name = #{record.rName,jdbcType=VARCHAR},
             </if>
-            <if test="record.uPassword != null" >
-                u_password = #{record.uPassword,jdbcType=VARCHAR},
-            </if>
-            <if test="record.uEmail != null" >
-                u_email = #{record.uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="record.uPhone != null" >
-                u_phone = #{record.uPhone,jdbcType=VARCHAR},
+            <if test="record.rCount != null" >
+                r_count = #{record.rCount,jdbcType=INTEGER},
             </if>
         </set>
         <if test="_parameter != null" >
@@ -185,42 +165,32 @@
     </update>
 
     <update id="updateByExample" parameterType="map" >
-        update e_user
+        update e_room
         set id = #{record.id,jdbcType=INTEGER},
-            u_name = #{record.uName,jdbcType=VARCHAR},
-            u_password = #{record.uPassword,jdbcType=VARCHAR},
-            u_email = #{record.uEmail,jdbcType=VARCHAR},
-            u_phone = #{record.uPhone,jdbcType=VARCHAR}
+            r_name = #{record.rName,jdbcType=VARCHAR},
+            r_count = #{record.rCount,jdbcType=INTEGER}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.User" >
-        update e_user
+    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.Room" >
+        update e_room
         <set >
-            <if test="uName != null" >
-                u_name = #{uName,jdbcType=VARCHAR},
+            <if test="rName != null" >
+                r_name = #{rName,jdbcType=VARCHAR},
             </if>
-            <if test="uPassword != null" >
-                u_password = #{uPassword,jdbcType=VARCHAR},
-            </if>
-            <if test="uEmail != null" >
-                u_email = #{uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="uPhone != null" >
-                u_phone = #{uPhone,jdbcType=VARCHAR},
+            <if test="rCount != null" >
+                r_count = #{rCount,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.User" >
-        update e_user
-        set u_name = #{uName,jdbcType=VARCHAR},
-            u_password = #{uPassword,jdbcType=VARCHAR},
-            u_email = #{uEmail,jdbcType=VARCHAR},
-            u_phone = #{uPhone,jdbcType=VARCHAR}
+    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.Room" >
+        update e_room
+        set r_name = #{rName,jdbcType=VARCHAR},
+            r_count = #{rCount,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.evaluating.mapper.UserMapper" >
+<mapper namespace="com.evaluating.mapper.ExamMapper" >
 
-    <resultMap id="BaseResultMap" type="com.evaluating.model.User" >
+    <resultMap id="BaseResultMap" type="com.evaluating.model.Exam" >
         <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="u_name" property="uName" jdbcType="VARCHAR" />
-        <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
-        <result column="u_email" property="uEmail" jdbcType="VARCHAR" />
-        <result column="u_phone" property="uPhone" jdbcType="VARCHAR" />
+        <result column="e_name" property="eName" jdbcType="VARCHAR" />
+        <result column="e_count" property="eCount" jdbcType="INTEGER" />
+        <result column="e_time" property="eTime" jdbcType="TIMESTAMP" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -71,16 +70,16 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, u_name, u_password, u_email, u_phone
+        id, e_name, e_count, e_time
     </sql>
 
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.UserExample" >
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.ExamExample" >
         select
         <if test="distinct" >
             distinct
         </if>
         <include refid="Base_Column_List" />
-        from e_user
+        from e_exam
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
@@ -92,91 +91,82 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select 
         <include refid="Base_Column_List" />
-        from e_user
+        from e_exam
         where id = #{id,jdbcType=INTEGER}
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_user
+        delete from e_exam
         where id = #{id,jdbcType=INTEGER}
     </delete>
 
-    <delete id="deleteByExample" parameterType="com.evaluating.model.UserExample" >
-        delete from e_user
+    <delete id="deleteByExample" parameterType="com.evaluating.model.ExamExample" >
+        delete from e_exam
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
     </delete>
 
-    <insert id="insert" parameterType="com.evaluating.model.User" >
-        insert into e_user (id, u_name, u_password, 
-            u_email, u_phone)
-        values (#{id,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
-            #{uEmail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR})
+    <insert id="insert" parameterType="com.evaluating.model.Exam" >
+        insert into e_exam (id, e_name, e_count, 
+            e_time)
+        values (#{id,jdbcType=INTEGER}, #{eName,jdbcType=VARCHAR}, #{eCount,jdbcType=INTEGER}, 
+            #{eTime,jdbcType=TIMESTAMP})
     </insert>
 
-    <insert id="insertSelective" parameterType="com.evaluating.model.User" >
-        insert into e_user
+    <insert id="insertSelective" parameterType="com.evaluating.model.Exam" >
+        insert into e_exam
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 id,
             </if>
-            <if test="uName != null" >
-                u_name,
+            <if test="eName != null" >
+                e_name,
             </if>
-            <if test="uPassword != null" >
-                u_password,
+            <if test="eCount != null" >
+                e_count,
             </if>
-            <if test="uEmail != null" >
-                u_email,
-            </if>
-            <if test="uPhone != null" >
-                u_phone,
+            <if test="eTime != null" >
+                e_time,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="uName != null" >
-                #{uName,jdbcType=VARCHAR},
+            <if test="eName != null" >
+                #{eName,jdbcType=VARCHAR},
             </if>
-            <if test="uPassword != null" >
-                #{uPassword,jdbcType=VARCHAR},
+            <if test="eCount != null" >
+                #{eCount,jdbcType=INTEGER},
             </if>
-            <if test="uEmail != null" >
-                #{uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="uPhone != null" >
-                #{uPhone,jdbcType=VARCHAR},
+            <if test="eTime != null" >
+                #{eTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
 
-    <select id="countByExample" parameterType="com.evaluating.model.UserExample" resultType="java.lang.Integer" >
-        select count(*) from e_user
+    <select id="countByExample" parameterType="com.evaluating.model.ExamExample" resultType="java.lang.Integer" >
+        select count(*) from e_exam
         <if test="_parameter != null" >
             <include refid="Example_Where_Clause" />
         </if>
     </select>
 
     <update id="updateByExampleSelective" parameterType="map" >
-        update e_user
+        update e_exam
         <set >
             <if test="record.id != null" >
                 id = #{record.id,jdbcType=INTEGER},
             </if>
-            <if test="record.uName != null" >
-                u_name = #{record.uName,jdbcType=VARCHAR},
+            <if test="record.eName != null" >
+                e_name = #{record.eName,jdbcType=VARCHAR},
             </if>
-            <if test="record.uPassword != null" >
-                u_password = #{record.uPassword,jdbcType=VARCHAR},
+            <if test="record.eCount != null" >
+                e_count = #{record.eCount,jdbcType=INTEGER},
             </if>
-            <if test="record.uEmail != null" >
-                u_email = #{record.uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="record.uPhone != null" >
-                u_phone = #{record.uPhone,jdbcType=VARCHAR},
+            <if test="record.eTime != null" >
+                e_time = #{record.eTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         <if test="_parameter != null" >
@@ -185,42 +175,37 @@
     </update>
 
     <update id="updateByExample" parameterType="map" >
-        update e_user
+        update e_exam
         set id = #{record.id,jdbcType=INTEGER},
-            u_name = #{record.uName,jdbcType=VARCHAR},
-            u_password = #{record.uPassword,jdbcType=VARCHAR},
-            u_email = #{record.uEmail,jdbcType=VARCHAR},
-            u_phone = #{record.uPhone,jdbcType=VARCHAR}
+            e_name = #{record.eName,jdbcType=VARCHAR},
+            e_count = #{record.eCount,jdbcType=INTEGER},
+            e_time = #{record.eTime,jdbcType=TIMESTAMP}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
     </update>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.User" >
-        update e_user
+    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.Exam" >
+        update e_exam
         <set >
-            <if test="uName != null" >
-                u_name = #{uName,jdbcType=VARCHAR},
+            <if test="eName != null" >
+                e_name = #{eName,jdbcType=VARCHAR},
             </if>
-            <if test="uPassword != null" >
-                u_password = #{uPassword,jdbcType=VARCHAR},
+            <if test="eCount != null" >
+                e_count = #{eCount,jdbcType=INTEGER},
             </if>
-            <if test="uEmail != null" >
-                u_email = #{uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="uPhone != null" >
-                u_phone = #{uPhone,jdbcType=VARCHAR},
+            <if test="eTime != null" >
+                e_time = #{eTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.User" >
-        update e_user
-        set u_name = #{uName,jdbcType=VARCHAR},
-            u_password = #{uPassword,jdbcType=VARCHAR},
-            u_email = #{uEmail,jdbcType=VARCHAR},
-            u_phone = #{uPhone,jdbcType=VARCHAR}
+    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.Exam" >
+        update e_exam
+        set e_name = #{eName,jdbcType=VARCHAR},
+            e_count = #{eCount,jdbcType=INTEGER},
+            e_time = #{eTime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>
