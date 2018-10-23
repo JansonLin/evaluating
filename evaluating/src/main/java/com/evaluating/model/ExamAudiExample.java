@@ -69,7 +69,7 @@ public class ExamAudiExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-18
+     * @date 2018-10-23
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -299,6 +299,266 @@ public class ExamAudiExample {
 
         public Criteria andExamNameNotBetween(String value1, String value2) {
             addCriterion("exam_name not between", value1, value2, "examName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdIsNull() {
+            addCriterion("ea_org_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdIsNotNull() {
+            addCriterion("ea_org_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdEqualTo(Integer value) {
+            addCriterion("ea_org_id =", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdNotEqualTo(Integer value) {
+            addCriterion("ea_org_id <>", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdGreaterThan(Integer value) {
+            addCriterion("ea_org_id >", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ea_org_id >=", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdLessThan(Integer value) {
+            addCriterion("ea_org_id <", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ea_org_id <=", value, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdIn(List<Integer> values) {
+            addCriterion("ea_org_id in", values, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdNotIn(List<Integer> values) {
+            addCriterion("ea_org_id not in", values, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdBetween(Integer value1, Integer value2) {
+            addCriterion("ea_org_id between", value1, value2, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ea_org_id not between", value1, value2, "eaOrgId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameIsNull() {
+            addCriterion("ea_org_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameIsNotNull() {
+            addCriterion("ea_org_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameEqualTo(String value) {
+            addCriterion("ea_org_name =", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameNotEqualTo(String value) {
+            addCriterion("ea_org_name <>", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameGreaterThan(String value) {
+            addCriterion("ea_org_name >", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameGreaterThanOrEqualTo(String value) {
+            addCriterion("ea_org_name >=", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameLessThan(String value) {
+            addCriterion("ea_org_name <", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameLessThanOrEqualTo(String value) {
+            addCriterion("ea_org_name <=", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameLike(String value) {
+            addCriterion("ea_org_name like", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameNotLike(String value) {
+            addCriterion("ea_org_name not like", value, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameIn(List<String> values) {
+            addCriterion("ea_org_name in", values, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameNotIn(List<String> values) {
+            addCriterion("ea_org_name not in", values, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameBetween(String value1, String value2) {
+            addCriterion("ea_org_name between", value1, value2, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaOrgNameNotBetween(String value1, String value2) {
+            addCriterion("ea_org_name not between", value1, value2, "eaOrgName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdIsNull() {
+            addCriterion("ea_work_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdIsNotNull() {
+            addCriterion("ea_work_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdEqualTo(Integer value) {
+            addCriterion("ea_work_id =", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdNotEqualTo(Integer value) {
+            addCriterion("ea_work_id <>", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdGreaterThan(Integer value) {
+            addCriterion("ea_work_id >", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ea_work_id >=", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdLessThan(Integer value) {
+            addCriterion("ea_work_id <", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ea_work_id <=", value, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdIn(List<Integer> values) {
+            addCriterion("ea_work_id in", values, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdNotIn(List<Integer> values) {
+            addCriterion("ea_work_id not in", values, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdBetween(Integer value1, Integer value2) {
+            addCriterion("ea_work_id between", value1, value2, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ea_work_id not between", value1, value2, "eaWorkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameIsNull() {
+            addCriterion("ea_work_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameIsNotNull() {
+            addCriterion("ea_work_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameEqualTo(String value) {
+            addCriterion("ea_work_name =", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameNotEqualTo(String value) {
+            addCriterion("ea_work_name <>", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameGreaterThan(String value) {
+            addCriterion("ea_work_name >", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameGreaterThanOrEqualTo(String value) {
+            addCriterion("ea_work_name >=", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameLessThan(String value) {
+            addCriterion("ea_work_name <", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameLessThanOrEqualTo(String value) {
+            addCriterion("ea_work_name <=", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameLike(String value) {
+            addCriterion("ea_work_name like", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameNotLike(String value) {
+            addCriterion("ea_work_name not like", value, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameIn(List<String> values) {
+            addCriterion("ea_work_name in", values, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameNotIn(List<String> values) {
+            addCriterion("ea_work_name not in", values, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameBetween(String value1, String value2) {
+            addCriterion("ea_work_name between", value1, value2, "eaWorkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andEaWorkNameNotBetween(String value1, String value2) {
+            addCriterion("ea_work_name not between", value1, value2, "eaWorkName");
             return (Criteria) this;
         }
 
@@ -815,7 +1075,7 @@ public class ExamAudiExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-18
+     * @date 2018-10-23
      */
     public static class Criterion {
         private String condition;

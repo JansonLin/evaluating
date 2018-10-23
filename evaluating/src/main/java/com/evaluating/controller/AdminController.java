@@ -76,5 +76,4 @@ public class AdminController {
 	public String welcome() {
 		return "admin/info/welcome";
 	}
-	
 }

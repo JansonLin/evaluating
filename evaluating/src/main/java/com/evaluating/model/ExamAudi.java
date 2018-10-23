@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-18
+ * @date 2018-10-23
  */
 public class ExamAudi {
     private Integer id;
@@ -18,6 +18,26 @@ public class ExamAudi {
      * 考试的名称
      */
     private String examName;
+
+    /**
+     * 直属单位id
+     */
+    private Integer eaOrgId;
+
+    /**
+     * 直属单位名
+     */
+    private String eaOrgName;
+
+    /**
+     * 应聘岗位id
+     */
+    private Integer eaWorkId;
+
+    /**
+     * 应聘岗位
+     */
+    private String eaWorkName;
 
     /**
      * 考生id，关联考生表
@@ -81,6 +101,38 @@ public class ExamAudi {
 
     public void setExamName(String examName) {
         this.examName = examName == null ? null : examName.trim();
+    }
+
+    public Integer getEaOrgId() {
+        return eaOrgId;
+    }
+
+    public void setEaOrgId(Integer eaOrgId) {
+        this.eaOrgId = eaOrgId;
+    }
+
+    public String getEaOrgName() {
+        return eaOrgName;
+    }
+
+    public void setEaOrgName(String eaOrgName) {
+        this.eaOrgName = eaOrgName == null ? null : eaOrgName.trim();
+    }
+
+    public Integer getEaWorkId() {
+        return eaWorkId;
+    }
+
+    public void setEaWorkId(Integer eaWorkId) {
+        this.eaWorkId = eaWorkId;
+    }
+
+    public String getEaWorkName() {
+        return eaWorkName;
+    }
+
+    public void setEaWorkName(String eaWorkName) {
+        this.eaWorkName = eaWorkName == null ? null : eaWorkName.trim();
     }
 
     public Integer getEaAtudentId() {

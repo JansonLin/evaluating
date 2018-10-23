@@ -68,7 +68,7 @@ public class MenuExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-18
+     * @date 2018-10-23
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -394,7 +394,7 @@ public class MenuExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-18
+     * @date 2018-10-23
      */
     public static class Criterion {
         private String condition;
