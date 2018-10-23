@@ -24,15 +24,15 @@
             <br/>
             <input type="password" name="account" required  lay-verify="required" placeholder="确认密码" autocomplete="off" class="layui-input">
             <br/>
-            <input type="text" name="account" required  lay-verify="required" placeholder="手机" autocomplete="off" class="layui-input">
+            <input type="text" name="uPhone" required  lay-verify="required" placeholder="手机" autocomplete="off" class="layui-input">
             <br/>
-            <input type="text" name="account" required  lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+            <input type="text" name="uEmail" required  lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
         </div>
         <div class="layui-input-inline login-btn">
             <button type="submit" class="layui-btn">注册</button>
         </div>
         <hr/>
-        <p><a href="javascript:;" class="fl">已有账号？立即登录</a><a href="javascript:;" class="fr">忘记密码？</a></p>
+        <p><a href="${pageContext.request.contextPath}/toLogin" class="fl">已有账号？立即登录</a><a href="javascript:;" class="fr">忘记密码？</a></p>
     </form>
 </div>
 

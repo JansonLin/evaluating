@@ -66,33 +66,39 @@
             <!-- 左侧主菜单添加选项卡监听 -->
             <ul class="layui-nav layui-nav-tree" lay-filter="side-main">
                <li class="layui-nav-item  layui-nav-itemed">
-                    <a href="javascript:;"><i class="layui-icon">&#xe620;</i>基础</a>
+                    <a href="javascript:;"><i class="layui-icon">&#xe620;</i>账户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/btn1"><i class="layui-icon">&#xe621;</i>按钮</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/form"><i class="layui-icon">&#xe621;</i>表单</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/table"><i class="layui-icon">&#xe621;</i>表格</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/tabCard"><i class="layui-icon">&#xe621;</i>选项卡</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/progressBar"><i class="layui-icon">&#xe621;</i>进度条</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/foldingPanel"><i class="layui-icon">&#xe621;</i>折叠面板</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/auxiliar"><i class="layui-icon">&#xe621;</i>辅助元素</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/user/personal"><i class="layui-icon">&#xe621;</i>用户信息</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/user/toPassword"><i class="layui-icon">&#xe621;</i>修改密码</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/user/toExam"><i class="layui-icon">&#xe621;</i>我的考试</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;"><i class="layui-icon">&#xe628;</i>扩展</a>
+                    <a href="javascript:;"><i class="layui-icon">&#xe638;</i>用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>登录页</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/register"><i class="layui-icon">&#xe621;</i>注册页</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login2"><i class="layui-icon">&#xe621;</i>登录页2</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/map"><i class="layui-icon">&#xe621;</i>图表</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/addEdit"><i class="layui-icon">&#xe621;</i>添加-修改</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/dataTable"><i class="layui-icon">&#xe621;</i>data-table 表格页</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/treeTable"><i class="layui-icon">&#xe621;</i>Tree table树表格页</a></dd>
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/tips"><i class="layui-icon">&#xe621;</i>提示页</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/user/personal"><i class="layui-icon">&#xe621;</i>用户列表</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/user/personal"><i class="layui-icon">&#xe621;</i>添加用户</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=ad6ba602ae228be2222ddb804086e0cfa42da3d74e34b383b665c2bec1adfc6e"><i class="layui-icon">&#xe61e;</i>加入群下载源码</a></li>
-            </ul>
-
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon">&#xe631;</i>权限管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>角色列表</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>新增角色</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>菜单列表</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>新增菜单</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon">&#xe632;</i>考试管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>添加考试</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>考试审核</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>成绩录入</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>查看考试</a></dd>
+                    </dl>
+                </li>
+             </ul>
         </div>
     </div>
     <!-- body -->

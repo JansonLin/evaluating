@@ -14,10 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 import com.evaluating.model.User;
 import com.evaluating.service.UserService;
 @Controller
+/**
+ * 
+ * 普通用户可用的后端部分controller
+ */
 @RequestMapping(value ="user")
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
+	@RequestMapping("toMain")
+	public String toMainPage() {
+		return "admin/main";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value ="user")
 	public User getUser() {
@@ -31,13 +41,30 @@ public class UserController {
 	public ModelAndView personal(HttpServletRequest req,HttpServletResponse rep) {
 		HttpSession session = req.getSession();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("admin/info/user_info");
+		model.setViewName("admin/main");
 		return model;
 	}
 	/**
 	 * 修改用户信息
 	 */
-	/*
-	 * 查
+	/**
+	 * 密码页
 	 */
+	@RequestMapping(value="toPassword")
+	public String toPassword() {
+		return "admin/user/user_password";
+	}
+	/**
+	 * 修改密码
+	 */
+	/*
+	 * 查看我的考试
+	 */
+	@RequestMapping(value="toExam")
+	public ModelAndView toExam(HttpServletRequest req,HttpServletResponse rep) {
+		HttpSession session = req.getSession();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("admin/user/exam");
+		return model;
+	}
 }
