@@ -14,9 +14,19 @@ public class UserService {
 	@Autowired
 	private UserMapper mapper;
 	
-	public User getUser() {
-		// TODO Auto-generated method stub
-		return mapper.selectByPrimaryKey(1);
+	public User getUser(String  userName,String password) {
+		User user = null ;
+		if(userName!=null&&!"".equals(userName)&&password!=null&&!"".equals(password)) {
+		UserExample example = new UserExample();
+		Criteria createCriteria = example.createCriteria();
+		createCriteria.andUNameEqualTo(userName);
+		createCriteria.andUPasswordEqualTo(password);
+		List<User> selectByExample = mapper.selectByExample(example);
+		if(!selectByExample.isEmpty()) {
+			user=selectByExample.get(0);
+		}
+		}
+		return user;
 	}
 	
 	public int saveUser(User user) {
