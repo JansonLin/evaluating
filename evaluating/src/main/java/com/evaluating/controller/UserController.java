@@ -28,12 +28,7 @@ public class UserController {
 		return "admin/main";
 	}
 	
-	@ResponseBody
-	@RequestMapping(value ="user")
-	public User getUser() {
-		User user =  userService.getUser();
-		return user;
-	}
+	
 	/**
 	 * 个人中心
 	 */
