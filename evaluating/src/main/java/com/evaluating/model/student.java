@@ -7,33 +7,69 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-18
+ * @date 2018-10-23
  */
 public class student {
     private Integer id;
 
+    /**
+     * 姓名
+     */
     private String sName;
 
+    /**
+     * 性别
+     */
     private Integer sSex;
 
+    /**
+     * 出生年月
+     */
     private Date sBirthday;
 
+    /**
+     * 民族
+     */
     private String sEthnic;
 
+    /**
+     * 籍贯
+     */
     private String sJiguan;
 
+    /**
+     * 户口所在地
+     */
     private String sHukou;
 
+    /**
+     * 政治面貌
+     */
     private String sPolitical;
 
+    /**
+     * 学历
+     */
     private String sEducation;
 
+    /**
+     * 学位
+     */
     private String sDegree;
 
+    /**
+     * 学校
+     */
     private String sSchool;
 
+    /**
+     * 专业
+     */
     private String sMajor;
 
+    /**
+     * 用户id
+     */
     private Integer userId;
 
     public Integer getId() {

@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-18
+ * @date 2018-10-23
  */
 public class Exam {
     private Integer id;

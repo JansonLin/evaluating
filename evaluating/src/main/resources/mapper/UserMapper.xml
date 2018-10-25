@@ -8,6 +8,17 @@
         <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
         <result column="u_email" property="uEmail" jdbcType="VARCHAR" />
         <result column="u_phone" property="uPhone" jdbcType="VARCHAR" />
+        <result column="u_rname" property="uRname" jdbcType="VARCHAR" />
+        <result column="u_card_no" property="uCardNo" jdbcType="VARCHAR" />
+        <result column="u_sex" property="uSex" jdbcType="INTEGER" />
+        <result column="u_birthday" property="uBirthday" jdbcType="DATE" />
+        <result column="u_jiguan" property="uJiguan" jdbcType="VARCHAR" />
+        <result column="u_hukou" property="uHukou" jdbcType="VARCHAR" />
+        <result column="u_political" property="uPolitical" jdbcType="VARCHAR" />
+        <result column="u_education" property="uEducation" jdbcType="VARCHAR" />
+        <result column="u_degree" property="uDegree" jdbcType="VARCHAR" />
+        <result column="u_major" property="uMajor" jdbcType="VARCHAR" />
+        <result column="u_school" property="uSchool" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -71,7 +82,8 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, u_name, u_password, u_email, u_phone
+        id, u_name, u_password, u_email, u_phone, u_rname, u_card_no, u_sex, u_birthday, 
+        u_jiguan, u_hukou, u_political, u_education, u_degree, u_major, u_school
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.UserExample" >
@@ -110,9 +122,17 @@
 
     <insert id="insert" parameterType="com.evaluating.model.User" >
         insert into e_user (id, u_name, u_password, 
-            u_email, u_phone)
+            u_email, u_phone, u_rname, 
+            u_card_no, u_sex, u_birthday, 
+            u_jiguan, u_hukou, u_political, 
+            u_education, u_degree, u_major, 
+            u_school)
         values (#{id,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
-            #{uEmail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR})
+            #{uEmail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR}, #{uRname,jdbcType=VARCHAR}, 
+            #{uCardNo,jdbcType=VARCHAR}, #{uSex,jdbcType=INTEGER}, #{uBirthday,jdbcType=DATE}, 
+            #{uJiguan,jdbcType=VARCHAR}, #{uHukou,jdbcType=VARCHAR}, #{uPolitical,jdbcType=VARCHAR}, 
+            #{uEducation,jdbcType=VARCHAR}, #{uDegree,jdbcType=VARCHAR}, #{uMajor,jdbcType=VARCHAR}, 
+            #{uSchool,jdbcType=VARCHAR})
     </insert>
 
     <insert id="insertSelective" parameterType="com.evaluating.model.User" >
@@ -133,6 +153,39 @@
             <if test="uPhone != null" >
                 u_phone,
             </if>
+            <if test="uRname != null" >
+                u_rname,
+            </if>
+            <if test="uCardNo != null" >
+                u_card_no,
+            </if>
+            <if test="uSex != null" >
+                u_sex,
+            </if>
+            <if test="uBirthday != null" >
+                u_birthday,
+            </if>
+            <if test="uJiguan != null" >
+                u_jiguan,
+            </if>
+            <if test="uHukou != null" >
+                u_hukou,
+            </if>
+            <if test="uPolitical != null" >
+                u_political,
+            </if>
+            <if test="uEducation != null" >
+                u_education,
+            </if>
+            <if test="uDegree != null" >
+                u_degree,
+            </if>
+            <if test="uMajor != null" >
+                u_major,
+            </if>
+            <if test="uSchool != null" >
+                u_school,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
@@ -149,6 +202,39 @@
             </if>
             <if test="uPhone != null" >
                 #{uPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="uRname != null" >
+                #{uRname,jdbcType=VARCHAR},
+            </if>
+            <if test="uCardNo != null" >
+                #{uCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="uSex != null" >
+                #{uSex,jdbcType=INTEGER},
+            </if>
+            <if test="uBirthday != null" >
+                #{uBirthday,jdbcType=DATE},
+            </if>
+            <if test="uJiguan != null" >
+                #{uJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="uHukou != null" >
+                #{uHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="uPolitical != null" >
+                #{uPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="uEducation != null" >
+                #{uEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="uDegree != null" >
+                #{uDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="uMajor != null" >
+                #{uMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="uSchool != null" >
+                #{uSchool,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -178,6 +264,39 @@
             <if test="record.uPhone != null" >
                 u_phone = #{record.uPhone,jdbcType=VARCHAR},
             </if>
+            <if test="record.uRname != null" >
+                u_rname = #{record.uRname,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uCardNo != null" >
+                u_card_no = #{record.uCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uSex != null" >
+                u_sex = #{record.uSex,jdbcType=INTEGER},
+            </if>
+            <if test="record.uBirthday != null" >
+                u_birthday = #{record.uBirthday,jdbcType=DATE},
+            </if>
+            <if test="record.uJiguan != null" >
+                u_jiguan = #{record.uJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uHukou != null" >
+                u_hukou = #{record.uHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uPolitical != null" >
+                u_political = #{record.uPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uEducation != null" >
+                u_education = #{record.uEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uDegree != null" >
+                u_degree = #{record.uDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uMajor != null" >
+                u_major = #{record.uMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="record.uSchool != null" >
+                u_school = #{record.uSchool,jdbcType=VARCHAR},
+            </if>
         </set>
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
@@ -190,7 +309,18 @@
             u_name = #{record.uName,jdbcType=VARCHAR},
             u_password = #{record.uPassword,jdbcType=VARCHAR},
             u_email = #{record.uEmail,jdbcType=VARCHAR},
-            u_phone = #{record.uPhone,jdbcType=VARCHAR}
+            u_phone = #{record.uPhone,jdbcType=VARCHAR},
+            u_rname = #{record.uRname,jdbcType=VARCHAR},
+            u_card_no = #{record.uCardNo,jdbcType=VARCHAR},
+            u_sex = #{record.uSex,jdbcType=INTEGER},
+            u_birthday = #{record.uBirthday,jdbcType=DATE},
+            u_jiguan = #{record.uJiguan,jdbcType=VARCHAR},
+            u_hukou = #{record.uHukou,jdbcType=VARCHAR},
+            u_political = #{record.uPolitical,jdbcType=VARCHAR},
+            u_education = #{record.uEducation,jdbcType=VARCHAR},
+            u_degree = #{record.uDegree,jdbcType=VARCHAR},
+            u_major = #{record.uMajor,jdbcType=VARCHAR},
+            u_school = #{record.uSchool,jdbcType=VARCHAR}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
@@ -211,6 +341,39 @@
             <if test="uPhone != null" >
                 u_phone = #{uPhone,jdbcType=VARCHAR},
             </if>
+            <if test="uRname != null" >
+                u_rname = #{uRname,jdbcType=VARCHAR},
+            </if>
+            <if test="uCardNo != null" >
+                u_card_no = #{uCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="uSex != null" >
+                u_sex = #{uSex,jdbcType=INTEGER},
+            </if>
+            <if test="uBirthday != null" >
+                u_birthday = #{uBirthday,jdbcType=DATE},
+            </if>
+            <if test="uJiguan != null" >
+                u_jiguan = #{uJiguan,jdbcType=VARCHAR},
+            </if>
+            <if test="uHukou != null" >
+                u_hukou = #{uHukou,jdbcType=VARCHAR},
+            </if>
+            <if test="uPolitical != null" >
+                u_political = #{uPolitical,jdbcType=VARCHAR},
+            </if>
+            <if test="uEducation != null" >
+                u_education = #{uEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="uDegree != null" >
+                u_degree = #{uDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="uMajor != null" >
+                u_major = #{uMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="uSchool != null" >
+                u_school = #{uSchool,jdbcType=VARCHAR},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -220,7 +383,18 @@
         set u_name = #{uName,jdbcType=VARCHAR},
             u_password = #{uPassword,jdbcType=VARCHAR},
             u_email = #{uEmail,jdbcType=VARCHAR},
-            u_phone = #{uPhone,jdbcType=VARCHAR}
+            u_phone = #{uPhone,jdbcType=VARCHAR},
+            u_rname = #{uRname,jdbcType=VARCHAR},
+            u_card_no = #{uCardNo,jdbcType=VARCHAR},
+            u_sex = #{uSex,jdbcType=INTEGER},
+            u_birthday = #{uBirthday,jdbcType=DATE},
+            u_jiguan = #{uJiguan,jdbcType=VARCHAR},
+            u_hukou = #{uHukou,jdbcType=VARCHAR},
+            u_political = #{uPolitical,jdbcType=VARCHAR},
+            u_education = #{uEducation,jdbcType=VARCHAR},
+            u_degree = #{uDegree,jdbcType=VARCHAR},
+            u_major = #{uMajor,jdbcType=VARCHAR},
+            u_school = #{uSchool,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

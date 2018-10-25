@@ -6,6 +6,10 @@
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="exam_id" property="examId" jdbcType="INTEGER" />
         <result column="exam_name" property="examName" jdbcType="VARCHAR" />
+        <result column="ea_org_id" property="eaOrgId" jdbcType="INTEGER" />
+        <result column="ea_org_name" property="eaOrgName" jdbcType="VARCHAR" />
+        <result column="ea_work_id" property="eaWorkId" jdbcType="INTEGER" />
+        <result column="ea_work_name" property="eaWorkName" jdbcType="VARCHAR" />
         <result column="ea_atudent_id" property="eaAtudentId" jdbcType="INTEGER" />
         <result column="exam_card_code" property="examCardCode" jdbcType="VARCHAR" />
         <result column="ea_enter_date" property="eaEnterDate" jdbcType="TIMESTAMP" />
@@ -77,8 +81,9 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, exam_id, exam_name, ea_atudent_id, exam_card_code, ea_enter_date, ea_auditor_id, 
-        ea_audi_status, ea_reason, ea_status, ea_score
+        id, exam_id, exam_name, ea_org_id, ea_org_name, ea_work_id, ea_work_name, ea_atudent_id, 
+        exam_card_code, ea_enter_date, ea_auditor_id, ea_audi_status, ea_reason, ea_status, 
+        ea_score
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.ExamAudiExample" >
@@ -117,13 +122,17 @@
 
     <insert id="insert" parameterType="com.evaluating.model.ExamAudi" >
         insert into e_exam_audi (id, exam_id, exam_name, 
-            ea_atudent_id, exam_card_code, ea_enter_date, 
-            ea_auditor_id, ea_audi_status, ea_reason, 
-            ea_status, ea_score)
+            ea_org_id, ea_org_name, ea_work_id, 
+            ea_work_name, ea_atudent_id, exam_card_code, 
+            ea_enter_date, ea_auditor_id, ea_audi_status, 
+            ea_reason, ea_status, ea_score
+            )
         values (#{id,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{examName,jdbcType=VARCHAR}, 
-            #{eaAtudentId,jdbcType=INTEGER}, #{examCardCode,jdbcType=VARCHAR}, #{eaEnterDate,jdbcType=TIMESTAMP}, 
-            #{eaAuditorId,jdbcType=INTEGER}, #{eaAudiStatus,jdbcType=INTEGER}, #{eaReason,jdbcType=LONGVARCHAR}, 
-            #{eaStatus,jdbcType=INTEGER}, #{eaScore,jdbcType=INTEGER})
+            #{eaOrgId,jdbcType=INTEGER}, #{eaOrgName,jdbcType=VARCHAR}, #{eaWorkId,jdbcType=INTEGER}, 
+            #{eaWorkName,jdbcType=VARCHAR}, #{eaAtudentId,jdbcType=INTEGER}, #{examCardCode,jdbcType=VARCHAR}, 
+            #{eaEnterDate,jdbcType=TIMESTAMP}, #{eaAuditorId,jdbcType=INTEGER}, #{eaAudiStatus,jdbcType=INTEGER}, 
+            #{eaReason,jdbcType=LONGVARCHAR}, #{eaStatus,jdbcType=INTEGER}, #{eaScore,jdbcType=INTEGER}
+            )
     </insert>
 
     <insert id="insertSelective" parameterType="com.evaluating.model.ExamAudi" >
@@ -137,6 +146,18 @@
             </if>
             <if test="examName != null" >
                 exam_name,
+            </if>
+            <if test="eaOrgId != null" >
+                ea_org_id,
+            </if>
+            <if test="eaOrgName != null" >
+                ea_org_name,
+            </if>
+            <if test="eaWorkId != null" >
+                ea_work_id,
+            </if>
+            <if test="eaWorkName != null" >
+                ea_work_name,
             </if>
             <if test="eaAtudentId != null" >
                 ea_atudent_id,
@@ -172,6 +193,18 @@
             </if>
             <if test="examName != null" >
                 #{examName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaOrgId != null" >
+                #{eaOrgId,jdbcType=INTEGER},
+            </if>
+            <if test="eaOrgName != null" >
+                #{eaOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaWorkId != null" >
+                #{eaWorkId,jdbcType=INTEGER},
+            </if>
+            <if test="eaWorkName != null" >
+                #{eaWorkName,jdbcType=VARCHAR},
             </if>
             <if test="eaAtudentId != null" >
                 #{eaAtudentId,jdbcType=INTEGER},
@@ -219,6 +252,18 @@
             <if test="record.examName != null" >
                 exam_name = #{record.examName,jdbcType=VARCHAR},
             </if>
+            <if test="record.eaOrgId != null" >
+                ea_org_id = #{record.eaOrgId,jdbcType=INTEGER},
+            </if>
+            <if test="record.eaOrgName != null" >
+                ea_org_name = #{record.eaOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eaWorkId != null" >
+                ea_work_id = #{record.eaWorkId,jdbcType=INTEGER},
+            </if>
+            <if test="record.eaWorkName != null" >
+                ea_work_name = #{record.eaWorkName,jdbcType=VARCHAR},
+            </if>
             <if test="record.eaAtudentId != null" >
                 ea_atudent_id = #{record.eaAtudentId,jdbcType=INTEGER},
             </if>
@@ -254,6 +299,10 @@
         set id = #{record.id,jdbcType=INTEGER},
             exam_id = #{record.examId,jdbcType=INTEGER},
             exam_name = #{record.examName,jdbcType=VARCHAR},
+            ea_org_id = #{record.eaOrgId,jdbcType=INTEGER},
+            ea_org_name = #{record.eaOrgName,jdbcType=VARCHAR},
+            ea_work_id = #{record.eaWorkId,jdbcType=INTEGER},
+            ea_work_name = #{record.eaWorkName,jdbcType=VARCHAR},
             ea_atudent_id = #{record.eaAtudentId,jdbcType=INTEGER},
             exam_card_code = #{record.examCardCode,jdbcType=VARCHAR},
             ea_enter_date = #{record.eaEnterDate,jdbcType=TIMESTAMP},
@@ -275,6 +324,18 @@
             </if>
             <if test="examName != null" >
                 exam_name = #{examName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaOrgId != null" >
+                ea_org_id = #{eaOrgId,jdbcType=INTEGER},
+            </if>
+            <if test="eaOrgName != null" >
+                ea_org_name = #{eaOrgName,jdbcType=VARCHAR},
+            </if>
+            <if test="eaWorkId != null" >
+                ea_work_id = #{eaWorkId,jdbcType=INTEGER},
+            </if>
+            <if test="eaWorkName != null" >
+                ea_work_name = #{eaWorkName,jdbcType=VARCHAR},
             </if>
             <if test="eaAtudentId != null" >
                 ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
@@ -308,6 +369,10 @@
         update e_exam_audi
         set exam_id = #{examId,jdbcType=INTEGER},
             exam_name = #{examName,jdbcType=VARCHAR},
+            ea_org_id = #{eaOrgId,jdbcType=INTEGER},
+            ea_org_name = #{eaOrgName,jdbcType=VARCHAR},
+            ea_work_id = #{eaWorkId,jdbcType=INTEGER},
+            ea_work_name = #{eaWorkName,jdbcType=VARCHAR},
             ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
             exam_card_code = #{examCardCode,jdbcType=VARCHAR},
             ea_enter_date = #{eaEnterDate,jdbcType=TIMESTAMP},

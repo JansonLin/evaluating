@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80012
 File Encoding         : 65001
 
-Date: 2018-10-18 16:11:42
+Date: 2018-10-23 13:41:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -60,6 +60,10 @@ CREATE TABLE `e_exam_audi` (
   `id` int(20) NOT NULL,
   `exam_id` int(20) DEFAULT NULL,
   `exam_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '' COMMENT '考试的名称',
+  `ea_org_id` int(20) DEFAULT NULL COMMENT '直属单位id',
+  `ea_org_name` varchar(50) DEFAULT '' COMMENT '直属单位名',
+  `ea_work_id` int(20) DEFAULT NULL COMMENT '应聘岗位id',
+  `ea_work_name` varchar(50) DEFAULT '' COMMENT '应聘岗位',
   `ea_atudent_id` int(20) DEFAULT NULL COMMENT '考生id，关联考生表',
   `exam_card_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '' COMMENT '准考证号',
   `ea_enter_date` datetime DEFAULT NULL COMMENT '报名时间',
@@ -173,18 +177,18 @@ CREATE TABLE `e_room` (
 DROP TABLE IF EXISTS `e_student`;
 CREATE TABLE `e_student` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
-  `s_name` varchar(50) DEFAULT '',
-  `s_sex` int(5) DEFAULT NULL,
-  `s_birthday` date DEFAULT NULL,
-  `s_ethnic` varchar(20) DEFAULT NULL,
-  `s_jiguan` varchar(255) DEFAULT NULL,
-  `s_hukou` varchar(255) DEFAULT NULL,
-  `s_political` varchar(50) DEFAULT NULL,
-  `s_education` varchar(50) DEFAULT NULL,
-  `s_degree` varchar(50) DEFAULT NULL,
-  `s_school` varchar(50) DEFAULT NULL,
-  `s_major` varchar(50) DEFAULT NULL,
-  `user_id` int(20) DEFAULT NULL,
+  `s_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '' COMMENT '姓名',
+  `s_sex` int(5) DEFAULT NULL COMMENT '性别',
+  `s_birthday` date DEFAULT NULL COMMENT '出生年月',
+  `s_ethnic` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '民族',
+  `s_jiguan` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '籍贯',
+  `s_hukou` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '户口所在地',
+  `s_political` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '政治面貌',
+  `s_education` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '学历',
+  `s_degree` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '学位',
+  `s_school` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '学校',
+  `s_major` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '专业',
+  `user_id` int(20) DEFAULT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -202,6 +206,17 @@ CREATE TABLE `e_user` (
   `u_password` varchar(50) DEFAULT '' COMMENT '用户密码',
   `u_email` varchar(50) DEFAULT '' COMMENT '用户邮箱',
   `u_phone` varchar(50) DEFAULT '' COMMENT '用户手机',
+  `u_rname` varchar(50) DEFAULT '' COMMENT '真实姓名',
+  `u_card_no` varchar(20) DEFAULT '' COMMENT '身份证号',
+  `u_sex` int(2) DEFAULT NULL COMMENT '性别1男，0 女 2 保密',
+  `u_birthday` date DEFAULT NULL COMMENT '生日',
+  `u_jiguan` varchar(255) DEFAULT '' COMMENT '籍贯',
+  `u_hukou` varchar(255) DEFAULT '' COMMENT '户口所在地',
+  `u_political` varchar(50) DEFAULT '' COMMENT '政治面貌',
+  `u_education` varchar(50) DEFAULT '' COMMENT '学历',
+  `u_degree` varchar(50) DEFAULT '' COMMENT '学位',
+  `u_major` varchar(50) DEFAULT '' COMMENT '学位',
+  `u_school` varchar(50) DEFAULT '' COMMENT '毕业院校',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
