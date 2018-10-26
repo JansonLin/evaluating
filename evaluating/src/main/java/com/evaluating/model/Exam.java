@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-10-26
  */
 public class Exam {
     private Integer id;
@@ -26,6 +26,21 @@ public class Exam {
      * 考试时间
      */
     private Date eTime;
+
+    /**
+     * 创建时定义考试编号，作为准考证号的前缀
+     */
+    private String eCode;
+
+    /**
+     * 创建考试的用户id
+     */
+    private Integer eCreatUserId;
+
+    /**
+     * 考试介绍
+     */
+    private String eDetail;
 
     public Integer getId() {
         return id;
@@ -57,5 +72,29 @@ public class Exam {
 
     public void seteTime(Date eTime) {
         this.eTime = eTime;
+    }
+
+    public String geteCode() {
+        return eCode;
+    }
+
+    public void seteCode(String eCode) {
+        this.eCode = eCode == null ? null : eCode.trim();
+    }
+
+    public Integer geteCreatUserId() {
+        return eCreatUserId;
+    }
+
+    public void seteCreatUserId(Integer eCreatUserId) {
+        this.eCreatUserId = eCreatUserId;
+    }
+
+    public String geteDetail() {
+        return eDetail;
+    }
+
+    public void seteDetail(String eDetail) {
+        this.eDetail = eDetail == null ? null : eDetail.trim();
     }
 }

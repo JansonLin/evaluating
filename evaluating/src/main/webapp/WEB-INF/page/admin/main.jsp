@@ -92,7 +92,9 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon">&#xe632;</i>考试管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>添加考试</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/exam/toAddExam"><i class="layui-icon">&#xe621;</i>添加考试</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/exam/toaddPlace"><i class="layui-icon">&#xe621;</i>添加考点</a></dd>
+                        <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/exam/toAddRoom"><i class="layui-icon">&#xe621;</i>添加考场</a></dd>
                         <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>考试审核</a></dd>
                         <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>成绩录入</a></dd>
                         <dd><a href="javascript:;" href-url="${pageContext.request.contextPath}/main/login"><i class="layui-icon">&#xe621;</i>查看考试</a></dd>

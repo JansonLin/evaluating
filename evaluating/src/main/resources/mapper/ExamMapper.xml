@@ -7,6 +7,9 @@
         <result column="e_name" property="eName" jdbcType="VARCHAR" />
         <result column="e_count" property="eCount" jdbcType="INTEGER" />
         <result column="e_time" property="eTime" jdbcType="TIMESTAMP" />
+        <result column="e_code" property="eCode" jdbcType="VARCHAR" />
+        <result column="e_creat_user_id" property="eCreatUserId" jdbcType="INTEGER" />
+        <result column="e_detail" property="eDetail" jdbcType="LONGVARCHAR" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -70,7 +73,7 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, e_name, e_count, e_time
+        id, e_name, e_count, e_time, e_code, e_creat_user_id, e_detail
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.ExamExample" >
@@ -109,9 +112,11 @@
 
     <insert id="insert" parameterType="com.evaluating.model.Exam" >
         insert into e_exam (id, e_name, e_count, 
-            e_time)
+            e_time, e_code, e_creat_user_id, 
+            e_detail)
         values (#{id,jdbcType=INTEGER}, #{eName,jdbcType=VARCHAR}, #{eCount,jdbcType=INTEGER}, 
-            #{eTime,jdbcType=TIMESTAMP})
+            #{eTime,jdbcType=TIMESTAMP}, #{eCode,jdbcType=VARCHAR}, #{eCreatUserId,jdbcType=INTEGER}, 
+            #{eDetail,jdbcType=LONGVARCHAR})
     </insert>
 
     <insert id="insertSelective" parameterType="com.evaluating.model.Exam" >
@@ -129,6 +134,15 @@
             <if test="eTime != null" >
                 e_time,
             </if>
+            <if test="eCode != null" >
+                e_code,
+            </if>
+            <if test="eCreatUserId != null" >
+                e_creat_user_id,
+            </if>
+            <if test="eDetail != null" >
+                e_detail,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
@@ -142,6 +156,15 @@
             </if>
             <if test="eTime != null" >
                 #{eTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="eCode != null" >
+                #{eCode,jdbcType=VARCHAR},
+            </if>
+            <if test="eCreatUserId != null" >
+                #{eCreatUserId,jdbcType=INTEGER},
+            </if>
+            <if test="eDetail != null" >
+                #{eDetail,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
@@ -168,6 +191,15 @@
             <if test="record.eTime != null" >
                 e_time = #{record.eTime,jdbcType=TIMESTAMP},
             </if>
+            <if test="record.eCode != null" >
+                e_code = #{record.eCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eCreatUserId != null" >
+                e_creat_user_id = #{record.eCreatUserId,jdbcType=INTEGER},
+            </if>
+            <if test="record.eDetail != null" >
+                e_detail = #{record.eDetail,jdbcType=LONGVARCHAR},
+            </if>
         </set>
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
@@ -179,7 +211,10 @@
         set id = #{record.id,jdbcType=INTEGER},
             e_name = #{record.eName,jdbcType=VARCHAR},
             e_count = #{record.eCount,jdbcType=INTEGER},
-            e_time = #{record.eTime,jdbcType=TIMESTAMP}
+            e_time = #{record.eTime,jdbcType=TIMESTAMP},
+            e_code = #{record.eCode,jdbcType=VARCHAR},
+            e_creat_user_id = #{record.eCreatUserId,jdbcType=INTEGER},
+            e_detail = #{record.eDetail,jdbcType=LONGVARCHAR}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
@@ -197,6 +232,15 @@
             <if test="eTime != null" >
                 e_time = #{eTime,jdbcType=TIMESTAMP},
             </if>
+            <if test="eCode != null" >
+                e_code = #{eCode,jdbcType=VARCHAR},
+            </if>
+            <if test="eCreatUserId != null" >
+                e_creat_user_id = #{eCreatUserId,jdbcType=INTEGER},
+            </if>
+            <if test="eDetail != null" >
+                e_detail = #{eDetail,jdbcType=LONGVARCHAR},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -205,7 +249,10 @@
         update e_exam
         set e_name = #{eName,jdbcType=VARCHAR},
             e_count = #{eCount,jdbcType=INTEGER},
-            e_time = #{eTime,jdbcType=TIMESTAMP}
+            e_time = #{eTime,jdbcType=TIMESTAMP},
+            e_code = #{eCode,jdbcType=VARCHAR},
+            e_creat_user_id = #{eCreatUserId,jdbcType=INTEGER},
+            e_detail = #{eDetail,jdbcType=LONGVARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

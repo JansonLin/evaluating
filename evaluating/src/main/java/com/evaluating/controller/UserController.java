@@ -36,7 +36,7 @@ public class UserController {
 	public ModelAndView personal(HttpServletRequest req,HttpServletResponse rep) {
 		HttpSession session = req.getSession();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("admin/main");
+		model.setViewName("admin/user/user_info");
 		return model;
 	}
 	/**

@@ -69,7 +69,7 @@ public class ExamExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-10-26
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -361,6 +361,206 @@ public class ExamExample {
             addCriterion("e_time not between", value1, value2, "eTime");
             return (Criteria) this;
         }
+
+        public Criteria andECodeIsNull() {
+            addCriterion("e_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeIsNotNull() {
+            addCriterion("e_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeEqualTo(String value) {
+            addCriterion("e_code =", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeNotEqualTo(String value) {
+            addCriterion("e_code <>", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeGreaterThan(String value) {
+            addCriterion("e_code >", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeGreaterThanOrEqualTo(String value) {
+            addCriterion("e_code >=", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeLessThan(String value) {
+            addCriterion("e_code <", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeLessThanOrEqualTo(String value) {
+            addCriterion("e_code <=", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeLike(String value) {
+            addCriterion("e_code like", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeNotLike(String value) {
+            addCriterion("e_code not like", value, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeIn(List<String> values) {
+            addCriterion("e_code in", values, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeNotIn(List<String> values) {
+            addCriterion("e_code not in", values, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeBetween(String value1, String value2) {
+            addCriterion("e_code between", value1, value2, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECodeNotBetween(String value1, String value2) {
+            addCriterion("e_code not between", value1, value2, "eCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdIsNull() {
+            addCriterion("e_creat_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdIsNotNull() {
+            addCriterion("e_creat_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdEqualTo(Integer value) {
+            addCriterion("e_creat_user_id =", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdNotEqualTo(Integer value) {
+            addCriterion("e_creat_user_id <>", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdGreaterThan(Integer value) {
+            addCriterion("e_creat_user_id >", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("e_creat_user_id >=", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdLessThan(Integer value) {
+            addCriterion("e_creat_user_id <", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("e_creat_user_id <=", value, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdIn(List<Integer> values) {
+            addCriterion("e_creat_user_id in", values, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdNotIn(List<Integer> values) {
+            addCriterion("e_creat_user_id not in", values, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("e_creat_user_id between", value1, value2, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andECreatUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("e_creat_user_id not between", value1, value2, "eCreatUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailIsNull() {
+            addCriterion("e_detail is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailIsNotNull() {
+            addCriterion("e_detail is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailEqualTo(String value) {
+            addCriterion("e_detail =", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailNotEqualTo(String value) {
+            addCriterion("e_detail <>", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailGreaterThan(String value) {
+            addCriterion("e_detail >", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailGreaterThanOrEqualTo(String value) {
+            addCriterion("e_detail >=", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailLessThan(String value) {
+            addCriterion("e_detail <", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailLessThanOrEqualTo(String value) {
+            addCriterion("e_detail <=", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailLike(String value) {
+            addCriterion("e_detail like", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailNotLike(String value) {
+            addCriterion("e_detail not like", value, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailIn(List<String> values) {
+            addCriterion("e_detail in", values, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailNotIn(List<String> values) {
+            addCriterion("e_detail not in", values, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailBetween(String value1, String value2) {
+            addCriterion("e_detail between", value1, value2, "eDetail");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDetailNotBetween(String value1, String value2) {
+            addCriterion("e_detail not between", value1, value2, "eDetail");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
@@ -375,7 +575,7 @@ public class ExamExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-10-26
      */
     public static class Criterion {
         private String condition;

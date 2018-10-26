@@ -15,3 +15,4 @@
 		diskExpiryThreadIntervalSeconds="120"
 		memoryStoreEvictionPolicy="LRU">
 	</defaultCache>
+</ehcache>
