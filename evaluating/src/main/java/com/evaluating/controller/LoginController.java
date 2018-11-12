@@ -13,6 +13,7 @@ import com.evaluating.service.UserService;
  * @do 用户的登录注册以及修改密码页面的跳转和信息的提交
  */
 @Controller
+@RequestMapping("loginController")
 public class LoginController {
 	@Autowired
 	private UserService userService;
@@ -20,6 +21,10 @@ public class LoginController {
 	@RequestMapping("toLogin")
 	public String toLoginPage() {
 		return "login";
+	}
+	
+	public String login(User user) {
+		return null;
 	}
 	@RequestMapping("toRegister")
 	public String toRegister() {

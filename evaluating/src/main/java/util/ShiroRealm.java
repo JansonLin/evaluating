@@ -1,5 +1,6 @@
 package util;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -18,6 +19,7 @@ import com.evaluating.service.UserService;
 public class ShiroRealm extends AuthorizingRealm {
 	@Autowired
 	private UserService userService;
+	
 
 	/**
 	 * 登录认证
@@ -28,7 +30,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		User user = userService.getUser(userName, password);
 		if(user!=null) {
 			 //如果身份认证验证成功，返回一个AuthenticationInfo实现；  
-	        return new SimpleAuthenticationInfo(userName, password, getName());  
+	        return new SimpleAuthenticationInfo(user, userName, getName());  
 		}
 		throw new UnknownAccountException();
 	}
@@ -37,6 +39,7 @@ public class ShiroRealm extends AuthorizingRealm {
 	 * 权限认证
 	 */
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+		Object principal = SecurityUtils.getSubject().getPrincipal();
 		// TODO Auto-generated method stub
 		return null;
 	}

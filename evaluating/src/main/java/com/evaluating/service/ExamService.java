@@ -18,8 +18,6 @@ public class ExamService {
 		return null;
 	}
 	public List<Exam> selectExamOn(){
-		ExamExample example = new ExamExample();
-		example.
 		return null;
 	}
 }
