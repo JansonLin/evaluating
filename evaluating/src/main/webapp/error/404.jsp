@@ -1,33 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>404 你要的页面已经找不到了~</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/frame/layui/css/layui.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/frame/static/css/style.css">
-    <link rel="icon" href="${pageContext.request.contextPath}/frame/static/image/code.png">
+  <meta charset="utf-8">
+  <title>404 页面不存在</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/layuiadmin/style/admin.css" media="all">
 </head>
-<body class="body">
+<body>
 
-<div class="my-page-box">
-    <h3>404</h3>
-    <p class="msg">Page Not Found</p>
-    <p class="text">对不起,没有找到您所需要的页面,可能是URL不确定,或者页面已被移除。</p>
-    <div class="my-btn-box">
-        <a class="layui-btn layui-btn-small" href="javascript:;">返回首页</a>
-        <a class="layui-btn layui-btn-danger layui-btn-small " href="javascript:;">返回上页</a>
+
+<div class="layui-fluid">
+  <div class="layadmin-tips">
+    <i class="layui-icon" face>&#xe664;</i>
+    <div class="layui-text">
+      <h1>
+        <span class="layui-anim layui-anim-loop layui-anim-">4</span> 
+        <span class="layui-anim layui-anim-loop layui-anim-rotate">0</span> 
+        <span class="layui-anim layui-anim-loop layui-anim-">4</span>
+      </h1>
     </div>
+  </div>
 </div>
 
-
-<script type="text/javascript" src="${pageContext.request.contextPath}/frame/layui/layui.js"></script>
-<script type="text/javascript">
-    // you code ...
-</script>
+  <script src="${pageContext.request.contextPath}/layuiadmin/layui/layui.js"></script>  
+  <script>
+  layui.config({
+    base: '${pageContext.request.contextPath}/layuiadmin/' //静态资源所在路径
+  }).extend({
+    index: 'lib/index' //主入口模块
+  }).use(['index']);
+  </script>
 </body>
 </html>

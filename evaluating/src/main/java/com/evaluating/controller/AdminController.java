@@ -12,65 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("admin")
 public class AdminController {
 	
-	@RequestMapping("toBlank")
-	public String toBlank() {
-		return "admin/info/_blank";
+	@RequestMapping("toMain")
+	public String toMainPage() {
+		return "index";
 	}
 	
-	@RequestMapping("toAddEdit")
-	public String toAddEdit() {
-		return "admin/info/add-edit";
+	@RequestMapping("toAddUser")
+	public String toAddUser() {
+		return "admin/addUser";
 	}
-	@RequestMapping("auxiliar")
-	public String toAuxiliar() {
-		return "admin/info/auxiliar";
-	}
-	@RequestMapping("btn")
-	public String btn() {
-		return "admin/info/btn";
-	}
-	@RequestMapping("btn1")
-	public String btn1() {
-		return "admin/info/btn1";
-	}
-	@RequestMapping("children")
-	public String children() {
-		return "admin/info/children";
-	}
-	@RequestMapping("dataTable")
-	public String dataTable() {
-		return "admin/info/data-table";
-	}
-	@RequestMapping("foldingPanel")
-	public String foldingPpanel() {
-		return "admin/info/folding-panel";
-	}
-	@RequestMapping("form")
-	public String form() {
-		return "admin/info/form";
-	}
-	@RequestMapping("progressBar")
-	public String progressBar() {
-		return "admin/info/progress-bar";
-	}
-	@RequestMapping("tabCard")
-	public String tabCard() {
-		return "admin/info/tab-card";
-	}
-	@RequestMapping("table")
-	public String table() {
-		return "admin/info/table";
-	}
-	@RequestMapping("tips")
-	public String tips() {
-		return "admin/info/tips";
-	}
-	@RequestMapping("treeTable")
-	public String treeTable() {
-		return "admin/info/tree-table";
-	}
-	@RequestMapping("welcome")
-	public String welcome() {
-		return "admin/info/welcome";
+	@RequestMapping("toAddRole")
+	public String toAddRole() {
+		return "admin/addRole";
 	}
 }

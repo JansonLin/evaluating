@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.evaluating.model.User;
+import com.evaluating.model.require.ResponseData;
 import com.evaluating.service.UserService;
 @Controller
 /**
@@ -23,10 +24,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("toMain")
-	public String toMainPage() {
-		return "admin/main";
-	}
+	
 	
 	
 	/**
@@ -38,6 +36,16 @@ public class UserController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("admin/user/user_info");
 		return model;
+	}
+	/**
+	 * 添加用户，并返回添加状态
+	 * @return
+	 */
+	public ResponseData addUser(User user) {
+		ResponseData result = new ResponseData();
+		result.setSuccess(true);
+		result.setMessage("");
+		return result;
 	}
 	/**
 	 * 修改用户信息
