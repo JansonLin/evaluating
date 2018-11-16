@@ -41,6 +41,8 @@ public class UserController {
 	 * 添加用户，并返回添加状态
 	 * @return
 	 */
+	@RequestMapping("addUser")
+	@ResponseBody
 	public ResponseData addUser(User user) {
 		ResponseData result = new ResponseData();
 		result.setSuccess(true);

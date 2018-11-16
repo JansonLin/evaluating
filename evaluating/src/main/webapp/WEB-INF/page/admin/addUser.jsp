@@ -17,7 +17,7 @@
     <div class="layui-card">
       <div class="layui-card-header">用户录入</div>
       <div class="layui-card-body" style="padding: 15px;">
-        <form class="layui-form" action="" lay-filter="component-form-group">
+        <form class="layui-form" action=""${pageContext.request.contextPath}/" lay-filter="component-form-group">
         
           
           <div class="layui-form-item">
@@ -31,21 +31,6 @@
               <label class="layui-form-label">邮箱</label>
               <div class="layui-input-inline">
                 <input type="text" name="uEmail" lay-verify="email" autocomplete="off" class="layui-input">
-              </div>
-            </div>
-          </div>
-          
-            <div class="layui-form-item">
-            <div class="layui-inline">
-              <label class="layui-form-label">密码</label>
-              <div class="layui-input-inline">
-                <input type="password" name="uPassword" id="LAY-user-login-password" lay-verify="pass" placeholder="密码" class="layui-input">
-              </div>
-            </div>
-            <div class="layui-inline">
-              <label class="layui-form-label">确认密码</label>
-              <div class="layui-input-inline">
-                <input type="password" name="repass" id="LAY-user-login-repass" lay-verify="required" placeholder="确认密码" class="layui-input">
               </div>
             </div>
           </div>
