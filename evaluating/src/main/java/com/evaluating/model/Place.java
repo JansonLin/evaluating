@@ -5,27 +5,27 @@ package com.evaluating.model;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class Place {
-    private Integer id;
+    private Integer pId;
 
     /**
-     * è€ƒç‚¹ä¿¡æ¯
+     * ¿¼µãĞÅÏ¢
      */
     private String pName;
 
     /**
-     * è€ƒç‚¹å¯å®¹çº³äººæ•°
+     * ¿¼µã¿ÉÈİÄÉÈËÊı
      */
     private Integer eCount;
 
-    public Integer getId() {
-        return id;
+    public Integer getpId() {
+        return pId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setpId(Integer pId) {
+        this.pId = pId;
     }
 
     public String getpName() {

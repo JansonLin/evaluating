@@ -5,27 +5,27 @@ package com.evaluating.model;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class Room {
-    private Integer id;
+    private Integer roId;
 
     /**
-     * è€ƒåœºä¿¡æ¯
+     * ¿¼³¡ĞÅÏ¢
      */
     private String rName;
 
     /**
-     * å¯å®¹çº³è€ƒç”Ÿæ•°
+     * ¿ÉÈİÄÉ¿¼ÉúÊı
      */
     private Integer rCount;
 
-    public Integer getId() {
-        return id;
+    public Integer getRoId() {
+        return roId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRoId(Integer roId) {
+        this.roId = roId;
     }
 
     public String getrName() {

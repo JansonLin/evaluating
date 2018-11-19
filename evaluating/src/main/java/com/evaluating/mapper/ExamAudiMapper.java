@@ -10,21 +10,13 @@ public interface ExamAudiMapper {
 
     int deleteByExample(ExamAudiExample example);
 
-    int deleteByPrimaryKey(Integer id);
-
     int insert(ExamAudi record);
 
     int insertSelective(ExamAudi record);
 
     List<ExamAudi> selectByExample(ExamAudiExample example);
 
-    ExamAudi selectByPrimaryKey(Integer id);
-
     int updateByExampleSelective(@Param("record") ExamAudi record, @Param("example") ExamAudiExample example);
 
     int updateByExample(@Param("record") ExamAudi record, @Param("example") ExamAudiExample example);
-
-    int updateByPrimaryKeySelective(ExamAudi record);
-
-    int updateByPrimaryKey(ExamAudi record);
 }

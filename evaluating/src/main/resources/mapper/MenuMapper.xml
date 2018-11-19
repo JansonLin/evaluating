@@ -3,7 +3,7 @@
 <mapper namespace="com.evaluating.mapper.MenuMapper" >
 
     <resultMap id="BaseResultMap" type="com.evaluating.model.Menu" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="m_id" property="mId" jdbcType="INTEGER" />
         <result column="m_name" property="mName" jdbcType="VARCHAR" />
         <result column="m_url" property="mUrl" jdbcType="VARCHAR" />
         <result column="m_info" property="mInfo" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, m_name, m_url, m_info
+        m_id, m_name, m_url, m_info
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.MenuExample" >
@@ -88,18 +88,6 @@
         </if>
     </select>
 
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select 
-        <include refid="Base_Column_List" />
-        from e_menu
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_menu
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-
     <delete id="deleteByExample" parameterType="com.evaluating.model.MenuExample" >
         delete from e_menu
         <if test="_parameter != null" >
@@ -108,17 +96,17 @@
     </delete>
 
     <insert id="insert" parameterType="com.evaluating.model.Menu" >
-        insert into e_menu (id, m_name, m_url, 
+        insert into e_menu (m_id, m_name, m_url, 
             m_info)
-        values (#{id,jdbcType=INTEGER}, #{mName,jdbcType=VARCHAR}, #{mUrl,jdbcType=VARCHAR}, 
+        values (#{mId,jdbcType=INTEGER}, #{mName,jdbcType=VARCHAR}, #{mUrl,jdbcType=VARCHAR}, 
             #{mInfo,jdbcType=VARCHAR})
     </insert>
 
     <insert id="insertSelective" parameterType="com.evaluating.model.Menu" >
         insert into e_menu
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                id,
+            <if test="mId != null" >
+                m_id,
             </if>
             <if test="mName != null" >
                 m_name,
@@ -131,8 +119,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                #{id,jdbcType=INTEGER},
+            <if test="mId != null" >
+                #{mId,jdbcType=INTEGER},
             </if>
             <if test="mName != null" >
                 #{mName,jdbcType=VARCHAR},
@@ -156,8 +144,8 @@
     <update id="updateByExampleSelective" parameterType="map" >
         update e_menu
         <set >
-            <if test="record.id != null" >
-                id = #{record.id,jdbcType=INTEGER},
+            <if test="record.mId != null" >
+                m_id = #{record.mId,jdbcType=INTEGER},
             </if>
             <if test="record.mName != null" >
                 m_name = #{record.mName,jdbcType=VARCHAR},
@@ -176,36 +164,12 @@
 
     <update id="updateByExample" parameterType="map" >
         update e_menu
-        set id = #{record.id,jdbcType=INTEGER},
+        set m_id = #{record.mId,jdbcType=INTEGER},
             m_name = #{record.mName,jdbcType=VARCHAR},
             m_url = #{record.mUrl,jdbcType=VARCHAR},
             m_info = #{record.mInfo,jdbcType=VARCHAR}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
-    </update>
-
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.Menu" >
-        update e_menu
-        <set >
-            <if test="mName != null" >
-                m_name = #{mName,jdbcType=VARCHAR},
-            </if>
-            <if test="mUrl != null" >
-                m_url = #{mUrl,jdbcType=VARCHAR},
-            </if>
-            <if test="mInfo != null" >
-                m_info = #{mInfo,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.Menu" >
-        update e_menu
-        set m_name = #{mName,jdbcType=VARCHAR},
-            m_url = #{mUrl,jdbcType=VARCHAR},
-            m_info = #{mInfo,jdbcType=VARCHAR}
-        where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

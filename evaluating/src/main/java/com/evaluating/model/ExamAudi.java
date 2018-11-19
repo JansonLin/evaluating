@@ -7,84 +7,84 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class ExamAudi {
-    private Integer id;
+    private Integer aId;
 
     private Integer examId;
 
     /**
-     * è€ƒè¯•çš„åç§°
+     * ¿¼ÊÔµÄÃû³Æ
      */
     private String examName;
 
     /**
-     * ç›´å±å•ä½id
+     * Ö±Êôµ¥Î»id
      */
     private Integer eaOrgId;
 
     /**
-     * ç›´å±å•ä½å
+     * Ö±Êôµ¥Î»Ãû
      */
     private String eaOrgName;
 
     /**
-     * åº”è˜å²—ä½id
+     * Ó¦Æ¸¸ÚÎ»id
      */
     private Integer eaWorkId;
 
     /**
-     * åº”è˜å²—ä½
+     * Ó¦Æ¸¸ÚÎ»
      */
     private String eaWorkName;
 
     /**
-     * è€ƒç”Ÿidï¼Œå…³è”è€ƒç”Ÿè¡¨
+     * ¿¼Éúid£¬¹ØÁª¿¼Éú±í
      */
     private Integer eaAtudentId;
 
     /**
-     * å‡†è€ƒè¯å·
+     * ×¼¿¼Ö¤ºÅ
      */
     private String examCardCode;
 
     /**
-     * æŠ¥åæ—¶é—´
+     * ±¨ÃûÊ±¼ä
      */
     private Date eaEnterDate;
 
     /**
-     * å®¡æ ¸äººid
+     * ÉóºËÈËid
      */
     private Integer eaAuditorId;
 
     /**
-     * å®¡æ ¸çŠ¶æ€1å®¡æ ¸ä¸­ï¼Œ2å®¡æ ¸é€šè¿‡ï¼Œ3å®¡æ ¸ä¸é€šè¿‡
+     * ÉóºË×´Ì¬1ÉóºËÖĞ£¬2ÉóºËÍ¨¹ı£¬3ÉóºË²»Í¨¹ı
      */
     private Integer eaAudiStatus;
 
     /**
-     * å®¡æ ¸æœªé€šè¿‡åŸå› 
+     * ÉóºËÎ´Í¨¹ıÔ­Òò
      */
     private String eaReason;
 
     /**
-     * è€ƒè¯•çŠ¶æ€1æœªè€ƒè¯•ï¼Œ2å·²è€ƒè¯•
+     * ¿¼ÊÔ×´Ì¬1Î´¿¼ÊÔ£¬2ÒÑ¿¼ÊÔ
      */
     private Integer eaStatus;
 
     /**
-     * è€ƒè¯•æˆç»©
+     * ¿¼ÊÔ³É¼¨
      */
     private Integer eaScore;
 
-    public Integer getId() {
-        return id;
+    public Integer getaId() {
+        return aId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setaId(Integer aId) {
+        this.aId = aId;
     }
 
     public Integer getExamId() {

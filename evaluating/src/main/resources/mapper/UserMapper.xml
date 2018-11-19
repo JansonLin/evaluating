@@ -3,7 +3,7 @@
 <mapper namespace="com.evaluating.mapper.UserMapper" >
 
     <resultMap id="BaseResultMap" type="com.evaluating.model.User" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="u_id" property="uId" jdbcType="INTEGER" />
         <result column="u_name" property="uName" jdbcType="VARCHAR" />
         <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
         <result column="u_email" property="uEmail" jdbcType="VARCHAR" />
@@ -82,7 +82,7 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, u_name, u_password, u_email, u_phone, u_rname, u_card_no, u_sex, u_birthday, 
+        u_id, u_name, u_password, u_email, u_phone, u_rname, u_card_no, u_sex, u_birthday, 
         u_jiguan, u_hukou, u_political, u_education, u_degree, u_major, u_school
     </sql>
 
@@ -101,18 +101,6 @@
         </if>
     </select>
 
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select 
-        <include refid="Base_Column_List" />
-        from e_user
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_user
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-
     <delete id="deleteByExample" parameterType="com.evaluating.model.UserExample" >
         delete from e_user
         <if test="_parameter != null" >
@@ -121,13 +109,13 @@
     </delete>
 
     <insert id="insert" parameterType="com.evaluating.model.User" >
-        insert into e_user (id, u_name, u_password, 
+        insert into e_user (u_id, u_name, u_password, 
             u_email, u_phone, u_rname, 
             u_card_no, u_sex, u_birthday, 
             u_jiguan, u_hukou, u_political, 
             u_education, u_degree, u_major, 
             u_school)
-        values (#{id,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
+        values (#{uId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
             #{uEmail,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR}, #{uRname,jdbcType=VARCHAR}, 
             #{uCardNo,jdbcType=VARCHAR}, #{uSex,jdbcType=INTEGER}, #{uBirthday,jdbcType=DATE}, 
             #{uJiguan,jdbcType=VARCHAR}, #{uHukou,jdbcType=VARCHAR}, #{uPolitical,jdbcType=VARCHAR}, 
@@ -138,8 +126,8 @@
     <insert id="insertSelective" parameterType="com.evaluating.model.User" >
         insert into e_user
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                id,
+            <if test="uId != null" >
+                u_id,
             </if>
             <if test="uName != null" >
                 u_name,
@@ -188,8 +176,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                #{id,jdbcType=INTEGER},
+            <if test="uId != null" >
+                #{uId,jdbcType=INTEGER},
             </if>
             <if test="uName != null" >
                 #{uName,jdbcType=VARCHAR},
@@ -249,8 +237,8 @@
     <update id="updateByExampleSelective" parameterType="map" >
         update e_user
         <set >
-            <if test="record.id != null" >
-                id = #{record.id,jdbcType=INTEGER},
+            <if test="record.uId != null" >
+                u_id = #{record.uId,jdbcType=INTEGER},
             </if>
             <if test="record.uName != null" >
                 u_name = #{record.uName,jdbcType=VARCHAR},
@@ -305,7 +293,7 @@
 
     <update id="updateByExample" parameterType="map" >
         update e_user
-        set id = #{record.id,jdbcType=INTEGER},
+        set u_id = #{record.uId,jdbcType=INTEGER},
             u_name = #{record.uName,jdbcType=VARCHAR},
             u_password = #{record.uPassword,jdbcType=VARCHAR},
             u_email = #{record.uEmail,jdbcType=VARCHAR},
@@ -324,77 +312,5 @@
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
-    </update>
-
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.User" >
-        update e_user
-        <set >
-            <if test="uName != null" >
-                u_name = #{uName,jdbcType=VARCHAR},
-            </if>
-            <if test="uPassword != null" >
-                u_password = #{uPassword,jdbcType=VARCHAR},
-            </if>
-            <if test="uEmail != null" >
-                u_email = #{uEmail,jdbcType=VARCHAR},
-            </if>
-            <if test="uPhone != null" >
-                u_phone = #{uPhone,jdbcType=VARCHAR},
-            </if>
-            <if test="uRname != null" >
-                u_rname = #{uRname,jdbcType=VARCHAR},
-            </if>
-            <if test="uCardNo != null" >
-                u_card_no = #{uCardNo,jdbcType=VARCHAR},
-            </if>
-            <if test="uSex != null" >
-                u_sex = #{uSex,jdbcType=INTEGER},
-            </if>
-            <if test="uBirthday != null" >
-                u_birthday = #{uBirthday,jdbcType=DATE},
-            </if>
-            <if test="uJiguan != null" >
-                u_jiguan = #{uJiguan,jdbcType=VARCHAR},
-            </if>
-            <if test="uHukou != null" >
-                u_hukou = #{uHukou,jdbcType=VARCHAR},
-            </if>
-            <if test="uPolitical != null" >
-                u_political = #{uPolitical,jdbcType=VARCHAR},
-            </if>
-            <if test="uEducation != null" >
-                u_education = #{uEducation,jdbcType=VARCHAR},
-            </if>
-            <if test="uDegree != null" >
-                u_degree = #{uDegree,jdbcType=VARCHAR},
-            </if>
-            <if test="uMajor != null" >
-                u_major = #{uMajor,jdbcType=VARCHAR},
-            </if>
-            <if test="uSchool != null" >
-                u_school = #{uSchool,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.User" >
-        update e_user
-        set u_name = #{uName,jdbcType=VARCHAR},
-            u_password = #{uPassword,jdbcType=VARCHAR},
-            u_email = #{uEmail,jdbcType=VARCHAR},
-            u_phone = #{uPhone,jdbcType=VARCHAR},
-            u_rname = #{uRname,jdbcType=VARCHAR},
-            u_card_no = #{uCardNo,jdbcType=VARCHAR},
-            u_sex = #{uSex,jdbcType=INTEGER},
-            u_birthday = #{uBirthday,jdbcType=DATE},
-            u_jiguan = #{uJiguan,jdbcType=VARCHAR},
-            u_hukou = #{uHukou,jdbcType=VARCHAR},
-            u_political = #{uPolitical,jdbcType=VARCHAR},
-            u_education = #{uEducation,jdbcType=VARCHAR},
-            u_degree = #{uDegree,jdbcType=VARCHAR},
-            u_major = #{uMajor,jdbcType=VARCHAR},
-            u_school = #{uSchool,jdbcType=VARCHAR}
-        where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

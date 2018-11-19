@@ -5,32 +5,32 @@ package com.evaluating.model;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class Menu {
-    private Integer id;
+    private Integer mId;
 
     /**
-     * 鑿滃崟鍚嶇О
+     * 菜单名称
      */
     private String mName;
 
     /**
-     * 鑿滃崟鍦板潃
+     * 菜单地址
      */
     private String mUrl;
 
     /**
-     * 鑿滃崟淇℃伅
+     * 菜单信息
      */
     private String mInfo;
 
-    public Integer getId() {
-        return id;
+    public Integer getmId() {
+        return mId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setmId(Integer mId) {
+        this.mId = mId;
     }
 
     public String getmName() {

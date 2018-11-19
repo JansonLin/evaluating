@@ -68,7 +68,7 @@ public class RoleExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -111,63 +111,63 @@ public class RoleExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andRIdIsNull() {
+            addCriterion("r_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andRIdIsNotNull() {
+            addCriterion("r_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andRIdEqualTo(Integer value) {
+            addCriterion("r_id =", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andRIdNotEqualTo(Integer value) {
+            addCriterion("r_id <>", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andRIdGreaterThan(Integer value) {
+            addCriterion("r_id >", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andRIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("r_id >=", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andRIdLessThan(Integer value) {
+            addCriterion("r_id <", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andRIdLessThanOrEqualTo(Integer value) {
+            addCriterion("r_id <=", value, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andRIdIn(List<Integer> values) {
+            addCriterion("r_id in", values, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andRIdNotIn(List<Integer> values) {
+            addCriterion("r_id not in", values, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andRIdBetween(Integer value1, Integer value2) {
+            addCriterion("r_id between", value1, value2, "rId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andRIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("r_id not between", value1, value2, "rId");
             return (Criteria) this;
         }
 
@@ -394,7 +394,7 @@ public class RoleExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     public static class Criterion {
         private String condition;

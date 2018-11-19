@@ -3,7 +3,7 @@
 <mapper namespace="com.evaluating.mapper.ExamAudiMapper" >
 
     <resultMap id="BaseResultMap" type="com.evaluating.model.ExamAudi" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="a_id" property="aId" jdbcType="INTEGER" />
         <result column="exam_id" property="examId" jdbcType="INTEGER" />
         <result column="exam_name" property="examName" jdbcType="VARCHAR" />
         <result column="ea_org_id" property="eaOrgId" jdbcType="INTEGER" />
@@ -81,7 +81,7 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, exam_id, exam_name, ea_org_id, ea_org_name, ea_work_id, ea_work_name, ea_atudent_id, 
+        a_id, exam_id, exam_name, ea_org_id, ea_org_name, ea_work_id, ea_work_name, ea_atudent_id, 
         exam_card_code, ea_enter_date, ea_auditor_id, ea_audi_status, ea_reason, ea_status, 
         ea_score
     </sql>
@@ -101,18 +101,6 @@
         </if>
     </select>
 
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select 
-        <include refid="Base_Column_List" />
-        from e_exam_audi
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_exam_audi
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-
     <delete id="deleteByExample" parameterType="com.evaluating.model.ExamAudiExample" >
         delete from e_exam_audi
         <if test="_parameter != null" >
@@ -121,13 +109,13 @@
     </delete>
 
     <insert id="insert" parameterType="com.evaluating.model.ExamAudi" >
-        insert into e_exam_audi (id, exam_id, exam_name, 
+        insert into e_exam_audi (a_id, exam_id, exam_name, 
             ea_org_id, ea_org_name, ea_work_id, 
             ea_work_name, ea_atudent_id, exam_card_code, 
             ea_enter_date, ea_auditor_id, ea_audi_status, 
             ea_reason, ea_status, ea_score
             )
-        values (#{id,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{examName,jdbcType=VARCHAR}, 
+        values (#{aId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{examName,jdbcType=VARCHAR}, 
             #{eaOrgId,jdbcType=INTEGER}, #{eaOrgName,jdbcType=VARCHAR}, #{eaWorkId,jdbcType=INTEGER}, 
             #{eaWorkName,jdbcType=VARCHAR}, #{eaAtudentId,jdbcType=INTEGER}, #{examCardCode,jdbcType=VARCHAR}, 
             #{eaEnterDate,jdbcType=TIMESTAMP}, #{eaAuditorId,jdbcType=INTEGER}, #{eaAudiStatus,jdbcType=INTEGER}, 
@@ -138,8 +126,8 @@
     <insert id="insertSelective" parameterType="com.evaluating.model.ExamAudi" >
         insert into e_exam_audi
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                id,
+            <if test="aId != null" >
+                a_id,
             </if>
             <if test="examId != null" >
                 exam_id,
@@ -185,8 +173,8 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                #{id,jdbcType=INTEGER},
+            <if test="aId != null" >
+                #{aId,jdbcType=INTEGER},
             </if>
             <if test="examId != null" >
                 #{examId,jdbcType=INTEGER},
@@ -243,8 +231,8 @@
     <update id="updateByExampleSelective" parameterType="map" >
         update e_exam_audi
         <set >
-            <if test="record.id != null" >
-                id = #{record.id,jdbcType=INTEGER},
+            <if test="record.aId != null" >
+                a_id = #{record.aId,jdbcType=INTEGER},
             </if>
             <if test="record.examId != null" >
                 exam_id = #{record.examId,jdbcType=INTEGER},
@@ -296,7 +284,7 @@
 
     <update id="updateByExample" parameterType="map" >
         update e_exam_audi
-        set id = #{record.id,jdbcType=INTEGER},
+        set a_id = #{record.aId,jdbcType=INTEGER},
             exam_id = #{record.examId,jdbcType=INTEGER},
             exam_name = #{record.examName,jdbcType=VARCHAR},
             ea_org_id = #{record.eaOrgId,jdbcType=INTEGER},
@@ -314,73 +302,5 @@
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
-    </update>
-
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.ExamAudi" >
-        update e_exam_audi
-        <set >
-            <if test="examId != null" >
-                exam_id = #{examId,jdbcType=INTEGER},
-            </if>
-            <if test="examName != null" >
-                exam_name = #{examName,jdbcType=VARCHAR},
-            </if>
-            <if test="eaOrgId != null" >
-                ea_org_id = #{eaOrgId,jdbcType=INTEGER},
-            </if>
-            <if test="eaOrgName != null" >
-                ea_org_name = #{eaOrgName,jdbcType=VARCHAR},
-            </if>
-            <if test="eaWorkId != null" >
-                ea_work_id = #{eaWorkId,jdbcType=INTEGER},
-            </if>
-            <if test="eaWorkName != null" >
-                ea_work_name = #{eaWorkName,jdbcType=VARCHAR},
-            </if>
-            <if test="eaAtudentId != null" >
-                ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
-            </if>
-            <if test="examCardCode != null" >
-                exam_card_code = #{examCardCode,jdbcType=VARCHAR},
-            </if>
-            <if test="eaEnterDate != null" >
-                ea_enter_date = #{eaEnterDate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="eaAuditorId != null" >
-                ea_auditor_id = #{eaAuditorId,jdbcType=INTEGER},
-            </if>
-            <if test="eaAudiStatus != null" >
-                ea_audi_status = #{eaAudiStatus,jdbcType=INTEGER},
-            </if>
-            <if test="eaReason != null" >
-                ea_reason = #{eaReason,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="eaStatus != null" >
-                ea_status = #{eaStatus,jdbcType=INTEGER},
-            </if>
-            <if test="eaScore != null" >
-                ea_score = #{eaScore,jdbcType=INTEGER},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.ExamAudi" >
-        update e_exam_audi
-        set exam_id = #{examId,jdbcType=INTEGER},
-            exam_name = #{examName,jdbcType=VARCHAR},
-            ea_org_id = #{eaOrgId,jdbcType=INTEGER},
-            ea_org_name = #{eaOrgName,jdbcType=VARCHAR},
-            ea_work_id = #{eaWorkId,jdbcType=INTEGER},
-            ea_work_name = #{eaWorkName,jdbcType=VARCHAR},
-            ea_atudent_id = #{eaAtudentId,jdbcType=INTEGER},
-            exam_card_code = #{examCardCode,jdbcType=VARCHAR},
-            ea_enter_date = #{eaEnterDate,jdbcType=TIMESTAMP},
-            ea_auditor_id = #{eaAuditorId,jdbcType=INTEGER},
-            ea_audi_status = #{eaAudiStatus,jdbcType=INTEGER},
-            ea_reason = #{eaReason,jdbcType=LONGVARCHAR},
-            ea_status = #{eaStatus,jdbcType=INTEGER},
-            ea_score = #{eaScore,jdbcType=INTEGER}
-        where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

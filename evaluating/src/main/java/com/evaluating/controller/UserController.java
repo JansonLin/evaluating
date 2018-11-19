@@ -46,7 +46,8 @@ public class UserController {
 	public ResponseData addUser(User user) {
 		ResponseData result = new ResponseData();
 		result.setSuccess(true);
-		result.setMessage("");
+		userService.saveUser(user);
+		result.setMessage("用户添加成功");
 		return result;
 	}
 	/**

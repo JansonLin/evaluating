@@ -7,92 +7,92 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class User {
-    private Integer id;
+    private Integer uId;
 
     /**
-     * ç”¨æˆ·å
+     * ÓÃ»§Ãû
      */
     private String uName;
 
     /**
-     * ç”¨æˆ·å¯†ç 
+     * ÓÃ»§ÃÜÂë
      */
     private String uPassword;
 
     /**
-     * ç”¨æˆ·é‚®ç®±
+     * ÓÃ»§ÓÊÏä
      */
     private String uEmail;
 
     /**
-     * ç”¨æˆ·æ‰‹æœº
+     * ÓÃ»§ÊÖ»ú
      */
     private String uPhone;
 
     /**
-     * çœŸå®å§“å
+     * ÕæÊµĞÕÃû
      */
     private String uRname;
 
     /**
-     * èº«ä»½è¯å·
+     * Éí·İÖ¤ºÅ
      */
     private String uCardNo;
 
     /**
-     * æ€§åˆ«1ç”·ï¼Œ0 å¥³ 2 ä¿å¯†
+     * ĞÔ±ğ1ÄĞ£¬0 Å® 2 ±£ÃÜ
      */
     private Integer uSex;
 
     /**
-     * ç”Ÿæ—¥
+     * ÉúÈÕ
      */
     private Date uBirthday;
 
     /**
-     * ç±è´¯
+     * ¼®¹á
      */
     private String uJiguan;
 
     /**
-     * æˆ·å£æ‰€åœ¨åœ°
+     * »§¿ÚËùÔÚµØ
      */
     private String uHukou;
 
     /**
-     * æ”¿æ²»é¢è²Œ
+     * ÕşÖÎÃæÃ²
      */
     private String uPolitical;
 
     /**
-     * å­¦å†
+     * Ñ§Àú
      */
     private String uEducation;
 
     /**
-     * å­¦ä½
+     * Ñ§Î»
      */
     private String uDegree;
 
     /**
-     * å­¦ä½
+     * Ñ§Î»
      */
     private String uMajor;
 
     /**
-     * æ¯•ä¸šé™¢æ ¡
+     * ±ÏÒµÔºĞ£
      */
     private String uSchool;
 
-    public Integer getId() {
-        return id;
+    public Integer getuId() {
+        return uId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setuId(Integer uId) {
+        this.uId = uId;
     }
 
     public String getuName() {

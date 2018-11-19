@@ -5,10 +5,10 @@ package com.evaluating.model;
  * 
  * @author wcyong
  * 
- * @date 2018-10-23
+ * @date 2018-11-19
  */
 public class Role {
-    private Integer id;
+    private Integer rId;
 
     /**
      * 角色名称
@@ -25,12 +25,12 @@ public class Role {
      */
     private String rInfo;
 
-    public Integer getId() {
-        return id;
+    public Integer getrId() {
+        return rId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setrId(Integer rId) {
+        this.rId = rId;
     }
 
     public String getrName() {

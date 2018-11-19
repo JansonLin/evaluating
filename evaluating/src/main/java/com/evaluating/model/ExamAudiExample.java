@@ -69,7 +69,7 @@ public class ExamAudiExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -112,63 +112,63 @@ public class ExamAudiExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andAIdIsNull() {
+            addCriterion("a_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andAIdIsNotNull() {
+            addCriterion("a_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andAIdEqualTo(Integer value) {
+            addCriterion("a_id =", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andAIdNotEqualTo(Integer value) {
+            addCriterion("a_id <>", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andAIdGreaterThan(Integer value) {
+            addCriterion("a_id >", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andAIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("a_id >=", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andAIdLessThan(Integer value) {
+            addCriterion("a_id <", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andAIdLessThanOrEqualTo(Integer value) {
+            addCriterion("a_id <=", value, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andAIdIn(List<Integer> values) {
+            addCriterion("a_id in", values, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andAIdNotIn(List<Integer> values) {
+            addCriterion("a_id not in", values, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andAIdBetween(Integer value1, Integer value2) {
+            addCriterion("a_id between", value1, value2, "aId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andAIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("a_id not between", value1, value2, "aId");
             return (Criteria) this;
         }
 
@@ -1075,7 +1075,7 @@ public class ExamAudiExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     public static class Criterion {
         private String condition;

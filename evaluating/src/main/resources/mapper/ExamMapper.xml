@@ -3,13 +3,16 @@
 <mapper namespace="com.evaluating.mapper.ExamMapper" >
 
     <resultMap id="BaseResultMap" type="com.evaluating.model.Exam" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="id" property="id" jdbcType="VARCHAR" />
+        <result column="bpm_status" property="bpmStatus" jdbcType="VARCHAR" />
+        <result column="e_create_id" property="eCreateId" jdbcType="VARCHAR" />
         <result column="e_name" property="eName" jdbcType="VARCHAR" />
-        <result column="e_count" property="eCount" jdbcType="INTEGER" />
-        <result column="e_time" property="eTime" jdbcType="TIMESTAMP" />
-        <result column="e_code" property="eCode" jdbcType="VARCHAR" />
-        <result column="e_creat_user_id" property="eCreatUserId" jdbcType="INTEGER" />
-        <result column="e_detail" property="eDetail" jdbcType="LONGVARCHAR" />
+        <result column="e_status" property="eStatus" jdbcType="VARCHAR" />
+        <result column="sys_org_code" property="sysOrgCode" jdbcType="VARCHAR" />
+        <result column="sys_company_code" property="sysCompanyCode" jdbcType="VARCHAR" />
+        <result column="e_date" property="eDate" jdbcType="TIMESTAMP" />
+        <result column="e_count" property="eCount" jdbcType="VARCHAR" />
+        <result column="e_info" property="eInfo" jdbcType="LONGVARCHAR" />
     </resultMap>
 
     <sql id="Example_Where_Clause" >
@@ -73,7 +76,8 @@
     </sql>
 
     <sql id="Base_Column_List" >
-        id, e_name, e_count, e_time, e_code, e_creat_user_id, e_detail
+        id, bpm_status, e_create_id, e_name, e_status, sys_org_code, sys_company_code, e_date, 
+        e_count, e_info
     </sql>
 
     <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.evaluating.model.ExamExample" >
@@ -91,18 +95,6 @@
         </if>
     </select>
 
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-        select 
-        <include refid="Base_Column_List" />
-        from e_exam
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-        delete from e_exam
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
-
     <delete id="deleteByExample" parameterType="com.evaluating.model.ExamExample" >
         delete from e_exam
         <if test="_parameter != null" >
@@ -111,12 +103,14 @@
     </delete>
 
     <insert id="insert" parameterType="com.evaluating.model.Exam" >
-        insert into e_exam (id, e_name, e_count, 
-            e_time, e_code, e_creat_user_id, 
-            e_detail)
-        values (#{id,jdbcType=INTEGER}, #{eName,jdbcType=VARCHAR}, #{eCount,jdbcType=INTEGER}, 
-            #{eTime,jdbcType=TIMESTAMP}, #{eCode,jdbcType=VARCHAR}, #{eCreatUserId,jdbcType=INTEGER}, 
-            #{eDetail,jdbcType=LONGVARCHAR})
+        insert into e_exam (id, bpm_status, e_create_id, 
+            e_name, e_status, sys_org_code, 
+            sys_company_code, e_date, e_count, 
+            e_info)
+        values (#{id,jdbcType=VARCHAR}, #{bpmStatus,jdbcType=VARCHAR}, #{eCreateId,jdbcType=VARCHAR}, 
+            #{eName,jdbcType=VARCHAR}, #{eStatus,jdbcType=VARCHAR}, #{sysOrgCode,jdbcType=VARCHAR}, 
+            #{sysCompanyCode,jdbcType=VARCHAR}, #{eDate,jdbcType=TIMESTAMP}, #{eCount,jdbcType=VARCHAR}, 
+            #{eInfo,jdbcType=LONGVARCHAR})
     </insert>
 
     <insert id="insertSelective" parameterType="com.evaluating.model.Exam" >
@@ -125,46 +119,64 @@
             <if test="id != null" >
                 id,
             </if>
+            <if test="bpmStatus != null" >
+                bpm_status,
+            </if>
+            <if test="eCreateId != null" >
+                e_create_id,
+            </if>
             <if test="eName != null" >
                 e_name,
+            </if>
+            <if test="eStatus != null" >
+                e_status,
+            </if>
+            <if test="sysOrgCode != null" >
+                sys_org_code,
+            </if>
+            <if test="sysCompanyCode != null" >
+                sys_company_code,
+            </if>
+            <if test="eDate != null" >
+                e_date,
             </if>
             <if test="eCount != null" >
                 e_count,
             </if>
-            <if test="eTime != null" >
-                e_time,
-            </if>
-            <if test="eCode != null" >
-                e_code,
-            </if>
-            <if test="eCreatUserId != null" >
-                e_creat_user_id,
-            </if>
-            <if test="eDetail != null" >
-                e_detail,
+            <if test="eInfo != null" >
+                e_info,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="id != null" >
-                #{id,jdbcType=INTEGER},
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="bpmStatus != null" >
+                #{bpmStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="eCreateId != null" >
+                #{eCreateId,jdbcType=VARCHAR},
             </if>
             <if test="eName != null" >
                 #{eName,jdbcType=VARCHAR},
             </if>
+            <if test="eStatus != null" >
+                #{eStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="sysOrgCode != null" >
+                #{sysOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="sysCompanyCode != null" >
+                #{sysCompanyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="eDate != null" >
+                #{eDate,jdbcType=TIMESTAMP},
+            </if>
             <if test="eCount != null" >
-                #{eCount,jdbcType=INTEGER},
+                #{eCount,jdbcType=VARCHAR},
             </if>
-            <if test="eTime != null" >
-                #{eTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="eCode != null" >
-                #{eCode,jdbcType=VARCHAR},
-            </if>
-            <if test="eCreatUserId != null" >
-                #{eCreatUserId,jdbcType=INTEGER},
-            </if>
-            <if test="eDetail != null" >
-                #{eDetail,jdbcType=LONGVARCHAR},
+            <if test="eInfo != null" >
+                #{eInfo,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
@@ -180,25 +192,34 @@
         update e_exam
         <set >
             <if test="record.id != null" >
-                id = #{record.id,jdbcType=INTEGER},
+                id = #{record.id,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bpmStatus != null" >
+                bpm_status = #{record.bpmStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eCreateId != null" >
+                e_create_id = #{record.eCreateId,jdbcType=VARCHAR},
             </if>
             <if test="record.eName != null" >
                 e_name = #{record.eName,jdbcType=VARCHAR},
             </if>
+            <if test="record.eStatus != null" >
+                e_status = #{record.eStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sysOrgCode != null" >
+                sys_org_code = #{record.sysOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sysCompanyCode != null" >
+                sys_company_code = #{record.sysCompanyCode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.eDate != null" >
+                e_date = #{record.eDate,jdbcType=TIMESTAMP},
+            </if>
             <if test="record.eCount != null" >
-                e_count = #{record.eCount,jdbcType=INTEGER},
+                e_count = #{record.eCount,jdbcType=VARCHAR},
             </if>
-            <if test="record.eTime != null" >
-                e_time = #{record.eTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="record.eCode != null" >
-                e_code = #{record.eCode,jdbcType=VARCHAR},
-            </if>
-            <if test="record.eCreatUserId != null" >
-                e_creat_user_id = #{record.eCreatUserId,jdbcType=INTEGER},
-            </if>
-            <if test="record.eDetail != null" >
-                e_detail = #{record.eDetail,jdbcType=LONGVARCHAR},
+            <if test="record.eInfo != null" >
+                e_info = #{record.eInfo,jdbcType=LONGVARCHAR},
             </if>
         </set>
         <if test="_parameter != null" >
@@ -208,51 +229,18 @@
 
     <update id="updateByExample" parameterType="map" >
         update e_exam
-        set id = #{record.id,jdbcType=INTEGER},
+        set id = #{record.id,jdbcType=VARCHAR},
+            bpm_status = #{record.bpmStatus,jdbcType=VARCHAR},
+            e_create_id = #{record.eCreateId,jdbcType=VARCHAR},
             e_name = #{record.eName,jdbcType=VARCHAR},
-            e_count = #{record.eCount,jdbcType=INTEGER},
-            e_time = #{record.eTime,jdbcType=TIMESTAMP},
-            e_code = #{record.eCode,jdbcType=VARCHAR},
-            e_creat_user_id = #{record.eCreatUserId,jdbcType=INTEGER},
-            e_detail = #{record.eDetail,jdbcType=LONGVARCHAR}
+            e_status = #{record.eStatus,jdbcType=VARCHAR},
+            sys_org_code = #{record.sysOrgCode,jdbcType=VARCHAR},
+            sys_company_code = #{record.sysCompanyCode,jdbcType=VARCHAR},
+            e_date = #{record.eDate,jdbcType=TIMESTAMP},
+            e_count = #{record.eCount,jdbcType=VARCHAR},
+            e_info = #{record.eInfo,jdbcType=LONGVARCHAR}
         <if test="_parameter != null" >
             <include refid="Update_By_Example_Where_Clause" />
         </if>
-    </update>
-
-    <update id="updateByPrimaryKeySelective" parameterType="com.evaluating.model.Exam" >
-        update e_exam
-        <set >
-            <if test="eName != null" >
-                e_name = #{eName,jdbcType=VARCHAR},
-            </if>
-            <if test="eCount != null" >
-                e_count = #{eCount,jdbcType=INTEGER},
-            </if>
-            <if test="eTime != null" >
-                e_time = #{eTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="eCode != null" >
-                e_code = #{eCode,jdbcType=VARCHAR},
-            </if>
-            <if test="eCreatUserId != null" >
-                e_creat_user_id = #{eCreatUserId,jdbcType=INTEGER},
-            </if>
-            <if test="eDetail != null" >
-                e_detail = #{eDetail,jdbcType=LONGVARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-
-    <update id="updateByPrimaryKey" parameterType="com.evaluating.model.Exam" >
-        update e_exam
-        set e_name = #{eName,jdbcType=VARCHAR},
-            e_count = #{eCount,jdbcType=INTEGER},
-            e_time = #{eTime,jdbcType=TIMESTAMP},
-            e_code = #{eCode,jdbcType=VARCHAR},
-            e_creat_user_id = #{eCreatUserId,jdbcType=INTEGER},
-            e_detail = #{eDetail,jdbcType=LONGVARCHAR}
-        where id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

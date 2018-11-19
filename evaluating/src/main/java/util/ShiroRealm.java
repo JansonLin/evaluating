@@ -1,5 +1,7 @@
 package util;
 
+import java.util.List;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,14 +13,16 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.evaluating.model.Role;
 import com.evaluating.model.User;
+import com.evaluating.service.RoleService;
 import com.evaluating.service.UserService;
 
 public class ShiroRealm extends AuthorizingRealm {
 	@Autowired
 	private UserService userService;
 	
-
+	private RoleService roleService;
 	/**
 	 * 登录认证
 	 */
@@ -37,7 +41,11 @@ public class ShiroRealm extends AuthorizingRealm {
 	 * 权限认证
 	 */
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		Object principal = SecurityUtils.getSubject().getPrincipal();
+		User user = (User)SecurityUtils.getSubject().getPrincipal();
+		
+		Integer id = user.getId();
+		
+		List<Role> roles = roleService.getRolesByUser(user);
 		// TODO Auto-generated method stub
 		return null;
 	}

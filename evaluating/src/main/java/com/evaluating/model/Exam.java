@@ -7,47 +7,78 @@ import java.util.Date;
  * 
  * @author wcyong
  * 
- * @date 2018-10-26
+ * @date 2018-11-19
  */
 public class Exam {
-    private Integer id;
+    private String id;
 
     /**
-     * è€ƒè¯•çš„åç§°
+     * Á÷³Ì×´Ì¬
+     */
+    private String bpmStatus;
+
+    /**
+     * ´´½¨ÈËid
+     */
+    private String eCreateId;
+
+    /**
+     * ¿¼ÊÔÃû³Æ
      */
     private String eName;
 
     /**
-     * å¯å®¹çº³è€ƒè¯•äººæ•°
+     * ¿¼ÊÔ×´Ì¬
      */
-    private Integer eCount;
+    private String eStatus;
 
     /**
-     * è€ƒè¯•æ—¶é—´
+     * ËùÊô²¿ÃÅ
      */
-    private Date eTime;
+    private String sysOrgCode;
 
     /**
-     * åˆ›å»ºæ—¶å®šä¹‰è€ƒè¯•ç¼–å·ï¼Œä½œä¸ºå‡†è€ƒè¯å·çš„å‰ç¼€
+     * ËùÊô¹«Ë¾
      */
-    private String eCode;
+    private String sysCompanyCode;
 
     /**
-     * åˆ›å»ºè€ƒè¯•çš„ç”¨æˆ·id
+     * ¿¼ÊÔÊ±¼ä
      */
-    private Integer eCreatUserId;
+    private Date eDate;
 
     /**
-     * è€ƒè¯•ä»‹ç»
+     * ¿¼ÊÔÈËÊı
      */
-    private String eDetail;
+    private String eCount;
 
-    public Integer getId() {
+    /**
+     * ¿¼ÊÔĞÅÏ¢
+     */
+    private String eInfo;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getBpmStatus() {
+        return bpmStatus;
+    }
+
+    public void setBpmStatus(String bpmStatus) {
+        this.bpmStatus = bpmStatus == null ? null : bpmStatus.trim();
+    }
+
+    public String geteCreateId() {
+        return eCreateId;
+    }
+
+    public void seteCreateId(String eCreateId) {
+        this.eCreateId = eCreateId == null ? null : eCreateId.trim();
     }
 
     public String geteName() {
@@ -58,43 +89,51 @@ public class Exam {
         this.eName = eName == null ? null : eName.trim();
     }
 
-    public Integer geteCount() {
+    public String geteStatus() {
+        return eStatus;
+    }
+
+    public void seteStatus(String eStatus) {
+        this.eStatus = eStatus == null ? null : eStatus.trim();
+    }
+
+    public String getSysOrgCode() {
+        return sysOrgCode;
+    }
+
+    public void setSysOrgCode(String sysOrgCode) {
+        this.sysOrgCode = sysOrgCode == null ? null : sysOrgCode.trim();
+    }
+
+    public String getSysCompanyCode() {
+        return sysCompanyCode;
+    }
+
+    public void setSysCompanyCode(String sysCompanyCode) {
+        this.sysCompanyCode = sysCompanyCode == null ? null : sysCompanyCode.trim();
+    }
+
+    public Date geteDate() {
+        return eDate;
+    }
+
+    public void seteDate(Date eDate) {
+        this.eDate = eDate;
+    }
+
+    public String geteCount() {
         return eCount;
     }
 
-    public void seteCount(Integer eCount) {
-        this.eCount = eCount;
+    public void seteCount(String eCount) {
+        this.eCount = eCount == null ? null : eCount.trim();
     }
 
-    public Date geteTime() {
-        return eTime;
+    public String geteInfo() {
+        return eInfo;
     }
 
-    public void seteTime(Date eTime) {
-        this.eTime = eTime;
-    }
-
-    public String geteCode() {
-        return eCode;
-    }
-
-    public void seteCode(String eCode) {
-        this.eCode = eCode == null ? null : eCode.trim();
-    }
-
-    public Integer geteCreatUserId() {
-        return eCreatUserId;
-    }
-
-    public void seteCreatUserId(Integer eCreatUserId) {
-        this.eCreatUserId = eCreatUserId;
-    }
-
-    public String geteDetail() {
-        return eDetail;
-    }
-
-    public void seteDetail(String eDetail) {
-        this.eDetail = eDetail == null ? null : eDetail.trim();
+    public void seteInfo(String eInfo) {
+        this.eInfo = eInfo == null ? null : eInfo.trim();
     }
 }

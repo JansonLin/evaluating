@@ -17,7 +17,7 @@
     <div class="layui-card">
       <div class="layui-card-header">用户录入</div>
       <div class="layui-card-body" style="padding: 15px;">
-        <form class="layui-form" action=""${pageContext.request.contextPath}/" lay-filter="component-form-group">
+        <form class="layui-form" action=""${pageContext.request.contextPath}/user/addUser" lay-filter="component-form-group">
         
           
           <div class="layui-form-item">
@@ -93,12 +93,21 @@
     });
     
     /* 监听提交 */
-    form.on('submit(component-form-demo1)', function(data){
-      parent.layer.alert(JSON.stringify(data.field), {
-        title: '最终的提交信息'
+     form.on('submit(component-form-demo1)', function(data){
+      /* parent.layer.alert(JSON.stringify(data.field), {
+        title: '最终的提交信息aa'
       })
+      console.log(data); */
+       $.ajax({
+    	  url:'${pageContext.request.contextPath}/user/addUser',
+    	  type:'post',
+    	  data:data.field,
+    	  success:function(data){
+    		  parent.layer.alert("提交成功");
+    	  }
+      }); 
       return false;
-    });
+    }); 
   });
   </script>
 </body>

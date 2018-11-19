@@ -68,7 +68,7 @@ public class PlaceExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -111,63 +111,63 @@ public class PlaceExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andPIdIsNull() {
+            addCriterion("p_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andPIdIsNotNull() {
+            addCriterion("p_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andPIdEqualTo(Integer value) {
+            addCriterion("p_id =", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andPIdNotEqualTo(Integer value) {
+            addCriterion("p_id <>", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andPIdGreaterThan(Integer value) {
+            addCriterion("p_id >", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andPIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("p_id >=", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andPIdLessThan(Integer value) {
+            addCriterion("p_id <", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andPIdLessThanOrEqualTo(Integer value) {
+            addCriterion("p_id <=", value, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andPIdIn(List<Integer> values) {
+            addCriterion("p_id in", values, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andPIdNotIn(List<Integer> values) {
+            addCriterion("p_id not in", values, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andPIdBetween(Integer value1, Integer value2) {
+            addCriterion("p_id between", value1, value2, "pId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andPIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("p_id not between", value1, value2, "pId");
             return (Criteria) this;
         }
 
@@ -314,7 +314,7 @@ public class PlaceExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     public static class Criterion {
         private String condition;

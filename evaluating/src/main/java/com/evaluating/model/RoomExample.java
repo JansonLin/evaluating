@@ -68,7 +68,7 @@ public class RoomExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -111,63 +111,63 @@ public class RoomExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andRoIdIsNull() {
+            addCriterion("ro_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andRoIdIsNotNull() {
+            addCriterion("ro_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andRoIdEqualTo(Integer value) {
+            addCriterion("ro_id =", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andRoIdNotEqualTo(Integer value) {
+            addCriterion("ro_id <>", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andRoIdGreaterThan(Integer value) {
+            addCriterion("ro_id >", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andRoIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ro_id >=", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andRoIdLessThan(Integer value) {
+            addCriterion("ro_id <", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andRoIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ro_id <=", value, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andRoIdIn(List<Integer> values) {
+            addCriterion("ro_id in", values, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andRoIdNotIn(List<Integer> values) {
+            addCriterion("ro_id not in", values, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andRoIdBetween(Integer value1, Integer value2) {
+            addCriterion("ro_id between", value1, value2, "roId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andRoIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ro_id not between", value1, value2, "roId");
             return (Criteria) this;
         }
 
@@ -314,7 +314,7 @@ public class RoomExample {
      * 
      * @author wcyong
      * 
-     * @date 2018-10-23
+     * @date 2018-11-19
      */
     public static class Criterion {
         private String condition;
