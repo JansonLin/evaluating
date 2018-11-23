@@ -1,5 +1,9 @@
 package com.evaluating.controller;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +27,16 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping("login")
 	public String login(User user) {
-		return null;
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(user.getuName(), user.getuPassword());
+		try {
+		subject.login(token);
+		}catch(AuthenticationException e) {
+			return e.getMessage();
+		}
+		return "index";
 	}
 	@RequestMapping("toRegister")
 	public String toRegister() {

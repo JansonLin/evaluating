@@ -21,10 +21,7 @@ public class AdminController {
 	@Autowired
 	private RoleService roleService;
 	
-	@RequestMapping("toMain")
-	public String toMainPage() {
-		return "index";
-	}
+	
 	
 	@RequestMapping("toAddUser")
 	public String toAddUser() {

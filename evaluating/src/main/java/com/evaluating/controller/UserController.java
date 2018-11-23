@@ -25,7 +25,10 @@ public class UserController {
 	private UserService userService;
 	
 	
-	
+	@RequestMapping("toMain")
+	public String toMainPage() {
+		return "index";
+	}
 	
 	/**
 	 * 个人中心

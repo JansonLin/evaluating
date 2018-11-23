@@ -28,6 +28,25 @@ public class UserService {
 		}
 		return user;
 	}
+	/**
+	 * 获取用户名
+	 * @param userName
+	 * @param password
+	 * @return
+	 */
+	public User getUserByName(String  userName) {
+		User user = null ;
+		if(userName!=null&&!"".equals(userName)) {
+		UserExample example = new UserExample();
+		Criteria createCriteria = example.createCriteria();
+		createCriteria.andUNameEqualTo(userName);
+		List<User> selectByExample = mapper.selectByExample(example);
+			if(!selectByExample.isEmpty()) {
+				user=selectByExample.get(0);
+			}
+		}
+		return user;
+	}
 	
 	public int saveUser(User user) {
 		int insert = mapper.insertSelective(user);
