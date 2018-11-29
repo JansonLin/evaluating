@@ -18,7 +18,7 @@ public class RoleServiceTest {
 	
 	private static RoleService roleService;
 
-	@BeforeClass
+	//@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		  //加载                                                                                                   
         BeanFactory beanFactory = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml","applicationContext-mybatis.xml"});                
@@ -26,7 +26,7 @@ public class RoleServiceTest {
         roleService = (RoleService) beanFactory.getBean(RoleService.class);   
 	}
 
-	@Test
+	//@Test
 	public void test() {
 		User user= new User();
 		user.setuId(2);

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +14,23 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/layuiadmin/style/login.css" media="all">
 </head>
 <body>
+<shiro:user>
+<h1> 登录成功啦，我就出来啦</h1>
+</shiro:user>
+
+
+<shiro:guest>
+欢迎游客的信息
+</shiro:guest>
+
+
+<shiro:hasRole name="admin">
+<h1>我是超级管理员</h1>
+</shiro:hasRole>
+<shiro:hasRole name="user">
+<h1>我是普通用户</h1>
+</shiro:hasRole>
+
 
   <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
 
@@ -36,7 +53,7 @@
           <div class="layui-row">
             <div class="layui-col-xs7">
               <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
-              <input type="text" name="vercode" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">
+              <input type="text" name="vercode" id="LAY-user-login-vercode" value="1" lay-verify="required" placeholder="图形验证码" class="layui-input">
             </div>
             <div class="layui-col-xs5">
               <div style="margin-left: 10px;">

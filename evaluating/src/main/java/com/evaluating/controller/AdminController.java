@@ -1,5 +1,7 @@
 package com.evaluating.controller;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,9 @@ public class AdminController {
 	
 	@RequestMapping("toAddUser")
 	public String toAddUser() {
+		Subject subject = SecurityUtils.getSubject();
+		Object principal = subject.getPrincipal();
+		System.out.println(principal.toString());
 		return "admin/addUser";
 	}
 	@RequestMapping("toAddRole")
