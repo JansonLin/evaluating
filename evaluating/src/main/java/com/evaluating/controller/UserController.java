@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.evaluating.model.User;
-import com.evaluating.model.require.ResponseData;
+import com.evaluating.model.require.ResultBean;
 import com.evaluating.service.UserService;
 @Controller
 /**
@@ -46,11 +46,8 @@ public class UserController {
 	 */
 	@RequestMapping("addUser")
 	@ResponseBody
-	public ResponseData addUser(User user) {
-		ResponseData result = new ResponseData();
-		result.setSuccess(true);
-		userService.saveUser(user);
-		result.setMessage("用户添加成功");
+	public ResultBean addUser(User user) {
+		ResultBean result = new ResultBean();
 		return result;
 	}
 	/**

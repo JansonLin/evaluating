@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.evaluating.model.Role;
 import com.evaluating.model.User;
-import com.evaluating.model.require.ResponseData;
+import com.evaluating.model.require.ResultBean;
 import com.evaluating.service.RoleService;
 
 @Controller
@@ -43,11 +43,10 @@ public class AdminController {
 	 */
 	@RequestMapping("addRole")
 	@ResponseBody
-	public ResponseData addRole(Role role) {
-		ResponseData result = new ResponseData();
-		result.setSuccess(true);
+	public ResultBean addRole(Role role) {
+		ResultBean result = new ResultBean();
 		roleService.saveRole(role);
-		result.setMessage("角色添加成功");
+		result.setMsg("角色添加成功");
 		return result;
 	}
 }

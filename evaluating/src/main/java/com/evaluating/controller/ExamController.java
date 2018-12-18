@@ -8,7 +8,7 @@ import com.evaluating.mapper.ExamMapper;
 import com.evaluating.model.Exam;
 import com.evaluating.model.Place;
 import com.evaluating.model.Room;
-import com.evaluating.model.require.ResponseData;
+import com.evaluating.model.require.ResultBean;
 import com.evaluating.service.ExamService;
 
 /**
@@ -26,7 +26,7 @@ public class ExamController {
 	public String toAddExam() {
 		return "admin/exam/add_exam";
 	}
-	public ResponseData addExam(Exam exam) {
+	public ResultBean addExam(Exam exam) {
 		examService.addExam(exam);
 		return null;
 	}
@@ -37,7 +37,7 @@ public class ExamController {
 		return model;
 	}
 	@RequestMapping("addPlace")
-	public ResponseData addPlace(Place place) {
+	public ResultBean addPlace(Place place) {
 		return null;
 	}
 	@RequestMapping("toAddRoom")
@@ -45,7 +45,7 @@ public class ExamController {
 		return "admin/exam/add_room";
 	}
 	@RequestMapping("addRoom")
-	public ResponseData addRoom(Room room) {
+	public ResultBean addRoom(Room room) {
 		return null;
 	}
 	/**
